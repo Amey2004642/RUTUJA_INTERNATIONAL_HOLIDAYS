@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rutuja International Holidays | Swanand Dev Darshan Yatra Company</title>
+    <!-- Google Fonts for Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Yatra+One&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #1e3c72;
+            --primary-light: #2a5298;
+            --accent: #ff9933;
+            --accent-hover: #e67e22;
+            --text-dark: #1e293b;
+            --text-light: #f8fafc;
+            --bg-light: #f1f5f9;
+            --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            background: rgba(30, 60, 114, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            color: var(--text-light);
+            font-weight: 700;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--accent);
+            font-family: 'Yatra One', cursive;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .book-btn {
+            background: var(--accent);
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 600 !important;
+            transition: all 0.3s !important;
+        }
+
+        .book-btn:hover {
+            background: var(--accent-hover);
+            color: white !important;
+            transform: scale(1.05);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background: linear-gradient(rgba(30, 60, 114, 0.85), rgba(42, 82, 152, 0.85)), url('https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--text-light);
+            padding: 0 20px;
+            margin-bottom: 60px;
+        }
+
+        .hero h1 {
+            font-family: 'Yatra One', cursive;
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+            animation: fadeInDown 1s ease;
+        }
+
+        .hero h2 {
+            font-size: 2rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            max-width: 800px;
+            margin-bottom: 35px;
+            font-weight: 300;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            padding: 15px 0;
+        }
+
+        /* --- LIVE SEARCH FILTER BAR --- */
+        .search-container {
+            background: white;
+            padding: 20px;
+            border-radius: 50px;
+            display: flex;
+            gap: 15px;
+            width: 90%;
+            max-width: 750px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .search-container input {
+            flex: 1;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .search-container button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .search-container button:hover {
+            background: var(--primary-light);
+        }
+
+        /* --- SECTION SETTINGS --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 2.3rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        .section-header h2::after {
+            content: '';
+            width: 60px;
+            height: 4px;
+            background: var(--accent);
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        /* --- SPECIALITY CARDS --- */
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .spec-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .spec-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--accent);
+        }
+
+        .spec-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+
+        .spec-icon {
+            width: 70px;
+            height: 70px;
+            background: #fff4e6;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px auto;
+        }
+
+        .spec-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        /* --- TOUR PACKAGES INTERACTIVE GRID --- */
+        .tour-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .tab-btn {
+            padding: 12px 25px;
+            background: white;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .tab-btn.active, .tab-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .tours-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .tour-item {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: all 0.3s;
+        }
+
+        .tour-item:hover {
+            transform: scale(1.02);
+        }
+
+        .tour-img-placeholder {
+            height: 200px;
+            background: #cbd5e1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #64748b;
+            font-weight: 600;
+            position: relative;
+        }
+
+        .tour-tag {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--accent);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .tour-info {
+            padding: 25px;
+        }
+
+        .tour-info h3 {
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .tour-features-list {
+            list-style: none;
+        }
+
+        .tour-features-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #f1f5f9;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.95rem;
+        }
+
+        .tour-features-list li::after {
+            content: '➔';
+            color: var(--accent);
+            font-size: 0.8rem;
+        }
+
+        /* --- TESTIMONIALS SLIDER ARCHITECTURE --- */
+        .testimonials {
+            background: #edf2f9;
+            padding: 60px 0;
+            border-radius: 20px;
+            margin-bottom: 80px;
+        }
+
+        .testimonial-card {
+            background: white;
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 40px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: var(--card-shadow);
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: #475569;
+        }
+
+        /* --- FAQ ACCORDION SECTION --- */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto 80px auto;
+        }
+
+        .faq-item {
+            background: white;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+        }
+
+        .faq-question {
+            padding: 20px;
+            font-weight: 600;
+            color: var(--primary);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            color: #475569;
+            background: #fafafa;
+        }
+
+        /* --- CONTACT & FOOTER --- */
+        .contact-cta {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            border-radius: 20px;
+            padding: 50px;
+            text-align: center;
+            box-shadow: var(--card-shadow);
+        }
+
+        .contact-cta h3 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .contact-card-btn {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(5px);
+            padding: 15px 30px;
+            border-radius: 50px;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s;
+        }
+
+        .contact-card-btn:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        footer {
+            background: #0f172a;
+            color: #94a3b8;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+            font-size: 0.9rem;
+            border-top: 4px solid var(--accent);
+        }
+
+        /* --- ANIMATIONS --- */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-3px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- RESPONSIVE SETTINGS --- */
+        @media (max-width: 768px) {
+            nav { padding: 15px 20px; }
+            .nav-links { display: none; } /* Can be expanded into a mobile menu drawer */
+            .hero h1 { font-size: 2.2rem; }
+            .hero h2 { font-size: 1.4rem; }
+            .hero p { font-size: 1.1rem; }
+            .search-container { flex-direction: column; border-radius: 20px; }
+            .search-container button { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- STICKY HEADER NAVIGATION -->
+    <nav>
+        <div class="logo">
+            🙏 <span>स्वानंद यात्रा</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">मुख्यपृष्ठ</a></li>
+            <li><a href="#speciality">वैशिष्ट्ये</a></li>
+            <li><a href="#tours">यात्रा पॅकेजेस</a></li>
+            <li><a href="#faq">प्रश्नावली</a></li>
+            <li><a href="tel:9284551534" class="book-btn">📞 9284551534</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO PROFILE DISPLAY -->
+    <section class="hero" id="home">
+        <h1>RUTUJA INTERNATIONAL HOLIDAYS</h1>
+        <h2>स्वानंद देवदर्शन यात्रा कंपनी, हडपसर पुणे</h2>
+        <p>✨ विश्वासार्हतेचे नाव म्हणजे स्वानंद! आता कुठेही फिरा, फक्त स्वानंद सोबत. ✨</p>
+        
+        <!-- Live Filter Visual Module -->
+        <div class="search-container">
+            <input type="text" placeholder="तुमची आवडती ट्रीप किंवा तीर्थक्षेत्र शोधा... (उदा. चारधाम, काश्मीर)">
+            <button type="button">शोधा</button>
+        </div>
+    </section>
+
+    <div class="container">
+
+        <!-- BRAND VALUE SECTORS -->
+        <section id="speciality">
+            <div class="section-header">
+                <h2>🍲 आमची खास वैशिष्ट्ये</h2>
+            </div>
+            <div class="specs-grid">
+                <div class="spec-card">
+                    <div class="spec-icon">
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#ff9933" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                    </div>
+                    <h3>महाराष्ट्रीयन जेवण</h3>
+                    <p>प्रवासातही घरची चव! आम्ही संपूर्ण प्रवासात शुद्ध आणि रुचकर पारंपारिक महाराष्ट्रीयन जेवणाची उत्तम सोय करतो.</p>
+                </div>
+                <div class="spec-card">
+                    <div class="spec-icon">
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#ff9933" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M15 3v18M3 9h18M3 15h18"/></svg>
+                    </div>
+                    <h3>स्वतःचे भव्य किचन सेटअप</h3>
+                    <p>एकाच वेळी ५०० लोकांचे अद्ययावत व दर्जेदार जेवण बनवण्याची स्वतःची सुसज्ज फिरती किचन व्यवस्था.</p>
+                </div>
+                <div class="spec-card">
+                    <div class="spec-icon">
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#ff9933" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <h3>अनुभवी आचारी स्टाफ</h3>
+                    <p>प्रत्येक यात्रेत दर्जेदार चव आणि उत्कृष्ट स्वच्छतेची काळजी घेण्यासाठी आमचे खास महाराष्ट्रीयन शेफ सोबत असतात.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- TOUR SELECTION MATRIX -->
+        <section id="tours">
+            <div class="section-header">
+                <h2>✈️ आमच्या प्रमुख लोकप्रिय यात्रा</h2>
+            </div>
+
+            <div class="tour-tabs">
+                <button class="tab-btn active" onclick="filterTours('all')">सर्व यात्रा</button>
+                <button class="tab-btn" onclick="filterTours('spiritual')">देवदर्शन</button>
+                <button class="tab-btn" onclick="filterTours('domestic')">भारत दर्शन</button>
+                <button class="tab-btn" onclick="filterTours('international')">इंटरनॅशनल</button>
+            </div>
+
+            <div class="tours-grid">
+                <!-- Card 1: Spiritual -->
+                <div class="tour-item spiritual-card">
+                    <div class="tour-img-placeholder" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1602643163983-ed0babc39797?auto=format&fit=crop&w=500&q=80') center/cover;">
+                        <span class="tour-tag">तीर्थक्षेत्र</span>
+                        <div style="position: absolute; bottom: 15px; left: 20px; color: white; font-size: 1.3rem; font-weight: bold;">🔱 देवदर्शन विशेष</div>
+                    </div>
+                    <div class="tour-info">
+                        <h3>पवित्र पावन यात्रा</h3>
+                        <ul class="tour-list tour-features-list">
+                            <li>चारधाम यात्रा <small>(केदारनाथ, बद्रीनाथ)</small></li>
+                            <li>१२ ज्योतिर्लिंग व साडेतीन पीठे</li>
+                            <li>अयोध्या, काशी, प्रयाग व वृंदावन</li>
+                            <li>अष्टविनायक यात्रा व अमरनाथ</li>
+                            <li>गंगासागर - जगन्नाथ पुरी</li>
+                            <li>मानस सरोवर व बालाजी दर्शन</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Card 2: Domestic -->
+                <div class="tour-item domestic-card">
+                    <div class="tour-img-placeholder" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1589182373726-e4f658ab50f0?auto=format&fit=crop&w=500&q=80') center/cover;">
+                        <span class="tour-tag">भारत दर्शन</span>
+                        <div style="position: absolute; bottom: 15px; left: 20px; color: white; font-size: 1.3rem; font-weight: bold;">🏔️ डोमेस्टिक सुट्ट्या</div>
+                    </div>
+                    <div class="tour-info">
+                        <h3>सुंदर भारत सफर</h3>
+                        <ul class="tour-list tour-features-list">
+                            <li>काश्मीर सुंदर खोरे</li>
+                            <li>आसाम - मेघालय - अरुणाचल</li>
+                            <li>थ्री सिस्टर | फोर सिस्टर स्पेशल</li>
+                            <li>केरळ व साऊथ इंडिया पॅकेज</li>
+                            <li>अंदमान-निकोबार व लक्षद्वीप</li>
+                            <li>राजस्थान व गुजरात दर्शन</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Card 3: International -->
+                <div class="tour-item international-card">
+                    <div class="tour-img-placeholder" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1527668752968-14dc70a27c95?auto=format&fit=crop&w=500&q=80') center/cover;">
+                        <span class="tour-tag">परदेश वारी</span>
+                        <div style="position: absolute; bottom: 15px; left: 20px; color: white; font-size: 1.3rem; font-weight: bold;">🌍 आंतरराष्ट्रीय ट्रीप</div>
+                    </div>
+                    <div class="tour-info">
+                        <h3>ग्लोबल हॉलिडेज</h3>
+                        <ul class="tour-list tour-features-list">
+                            <li>स्वीटझर्लंड (युरोप स्पेशल)</li>
+                            <li>दुबई आखाती सफर</li>
+                            <li>श्रीलंका निसर्ग दर्शन</li>
+                            <li>नेपाळ व भूतान शेजारी देश</li>
+                            <li>मालदीव बीच हॉलिडे</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SOCIAL PROOF MODULE -->
+        <section class="testimonials">
+            <div class="section-header">
+                <h2>✨ समाधानी प्रवाशांचे अनुभव</h2>
+            </div>
+            <div class="testimonial-card">
+                <p>"स्वानंद सोबतची आमची चारधाम यात्रा खूपच अविस्मरणीय झाली. प्रवासात प्रत्येक ठिकाणी वेळेवर गरमागरम महाराष्ट्रीयन जेवण मिळणे ही आमच्यासाठी सर्वात मोठी सोय होती! आचारी काकांचे मनापासून आभार."</p>
+                <strong style="color: var(--primary)">- रमेश सोनावणे (हडपसर, पुणे)</strong>
+            </div>
+        </section>
+
+        <!-- FAQ ACCORDION INTERACTIVITY -->
+        <section id="faq" class="faq-container">
+            <div class="section-header">
+                <h2>❓ सतत विचारले जाणारे प्रश्न</h2>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">यात्रेत जेवणाची काय व्यवस्था असते? <span>+</span></div>
+                <div class="faq-answer"><p style="padding: 20px 0;">आमच्या प्रत्येक ट्रीपमध्ये स्वतःचे स्वतंत्र मोठे किचन सेटअप आणि अनुभवी महाराष्ट्रीयन आचारी सोबत असतात, जे संपूर्ण प्रवासात अस्सल घरगुती चवीचे शाकाहारी जेवण तयार करतात.</p></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">बुकिंग करण्यासाठी आम्हाला काय करावे लागेल? <span>+</span></div>
+                <div class="faq-answer"><p style="padding: 20px 0;">तुम्ही आमच्या 9284551534 या नंबरवर थेट कॉल किंवा व्हॉट्सॲप मेसेज करून आपल्या आवडीच्या यात्रेची संपूर्ण माहिती पुस्तिका (Itinerary) मिळवू शकता व जागा आरक्षित करू शकता.</p></div>
+            </div>
+        </section>
+
+        <!-- CONTACT INTERACTION HUB -->
+        <section class="contact-cta">
+            <h3>आता स्वप्न आवरा, बॅग भरा आणि निघा!</h3>
+            <p>तुमच्या संपूर्ण प्रवासाची आणि जेवणाची जबाबदारी आमची. आजच तुमची सीट निश्चित करा.</p>
+            <div class="contact-links">
+                <a href="tel:9284551534" class="contact-card-btn">📞 कॉल करा: 9284551534</a>
+                <a href="https://wa.me/919284551534" class="contact-card-btn" style="background:#25D366;">💬 व्हॉट्सॲप चॅट करा</a>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- GLOBAL FOOTER SECTION -->
+    <footer>
+        <p>© 2026 Rutuja International Holidays | Swanand Dev Darshan Yatra Company, Hadapsar, Pune.</p>
+        <p style="margin-top: 10px; font-size: 0.8rem; color: #64748b;">All Rights Reserved. Crafted for premium user-experience preview.</p>
+    </footer>
+
+    <!-- LIGHTWEIGHT INTERACTIVE LOGIC SCRIPT -->
+    <script>
+        function toggleFaq(element) {
+            const answer = element.nextElementSibling;
+            const span = element.querySelector('span');
+            if (answer.style.maxHeight && answer.style.maxHeight !== '0px') {
+                answer.style.maxHeight = '0px';
+                span.innerText = '+';
+            } else {
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+                span.innerText = '-';
+            }
+        }
+
+        function filterTours(category) {
+            const items = document.querySelectorAll('.tour-item');
+            const buttons = document.querySelectorAll('.tab-btn');
+            
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            items.forEach(item => {
+                if (category === 'all') {
+                    item.style.display = 'block';
+                } else if (item.classList.contains(category + '-card')) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

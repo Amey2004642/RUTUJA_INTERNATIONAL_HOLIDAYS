@@ -7,18 +7,22 @@
     <!-- Google Fonts for Modern Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Yatra+One&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Yatra+One&family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
         :root {
-            --primary: #1e3c72;
+            --primary: #1a2a6c;
             --primary-light: #2a5298;
-            --accent: #ff9933;
-            --accent-hover: #e67e22;
+            --accent: #ff6b35;
+            --accent-gold: #f7c948;
+            --accent-hover: #e55a2b;
             --text-dark: #1e293b;
             --text-light: #f8fafc;
-            --bg-light: #f1f5f9;
-            --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --bg-light: #f0f4f8;
+            --card-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+            --gradient-hero: linear-gradient(135deg, #1a2a6c 0%, #2a5298 50%, #1a2a6c 100%);
         }
 
         * {
@@ -35,39 +39,73 @@
             overflow-x: hidden;
         }
 
+        /* --- SCROLLBAR --- */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #e2e8f0; }
+        ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--primary-light); }
+
         /* --- NAVIGATION --- */
         nav {
-            background: rgba(30, 60, 114, 0.95);
-            backdrop-filter: blur(10px);
+            background: rgba(26, 42, 108, 0.96);
+            backdrop-filter: blur(12px);
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 1000;
-            padding: 15px 5%;
+            padding: 12px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 30px rgba(0,0,0,0.15);
+            transition: all 0.3s;
         }
 
         .logo {
             color: var(--text-light);
             font-weight: 700;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
 
-        .logo span {
-            color: var(--accent);
+        .logo img {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+            border-radius: 8px;
+            background: rgba(255,255,255,0.05);
+            padding: 2px;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+
+        .logo-text .brand {
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+        }
+
+        .logo-text .brand span {
+            color: var(--accent-gold);
             font-family: 'Yatra One', cursive;
+        }
+
+        .logo-text .sub {
+            font-size: 0.6rem;
+            opacity: 0.8;
+            font-weight: 300;
+            letter-spacing: 1px;
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 25px;
+            gap: 20px;
             align-items: center;
         }
 
@@ -75,100 +113,281 @@
             color: var(--text-light);
             text-decoration: none;
             font-weight: 500;
-            transition: color 0.3s;
-            font-size: 0.95rem;
+            transition: all 0.3s;
+            font-size: 0.85rem;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-gold);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
         }
 
         .nav-links a:hover {
-            color: var(--accent);
+            color: var(--accent-gold);
         }
 
         .book-btn {
             background: var(--accent);
-            padding: 10px 20px;
+            padding: 10px 22px;
             border-radius: 30px;
             font-weight: 600 !important;
             transition: all 0.3s !important;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
         }
 
         .book-btn:hover {
             background: var(--accent-hover);
             color: white !important;
             transform: scale(1.05);
+            box-shadow: 0 6px 25px rgba(255, 107, 53, 0.5);
+        }
+
+        .book-btn::after { display: none !important; }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .menu-toggle span {
+            width: 28px;
+            height: 3px;
+            background: white;
+            border-radius: 3px;
+            transition: all 0.3s;
         }
 
         /* --- HERO SECTION --- */
         .hero {
-            background: linear-gradient(rgba(30, 60, 114, 0.85), rgba(42, 82, 152, 0.85)), url('https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
-            height: 100vh;
+            background: var(--gradient-hero);
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
             color: var(--text-light);
-            padding: 0 20px;
-            margin-bottom: 60px;
+            padding: 120px 20px 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(247, 201, 72, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: floatBg 20s infinite alternate ease-in-out;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255, 107, 53, 0.06) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: floatBg 25s infinite alternate-reverse ease-in-out;
+        }
+
+        @keyframes floatBg {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(50px, 30px) scale(1.1); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(8px);
+            padding: 8px 25px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            margin-bottom: 20px;
+            animation: fadeInDown 0.8s ease;
         }
 
         .hero h1 {
             font-family: 'Yatra One', cursive;
-            font-size: 3.5rem;
-            margin-bottom: 10px;
-            letter-spacing: 2px;
+            font-size: 3.8rem;
+            margin-bottom: 8px;
+            letter-spacing: 3px;
             animation: fadeInDown 1s ease;
+            text-shadow: 0 4px 30px rgba(0,0,0,0.2);
+        }
+
+        .hero h1 .highlight {
+            color: var(--accent-gold);
         }
 
         .hero h2 {
-            font-size: 2rem;
-            color: var(--accent);
-            font-weight: 600;
-            margin-bottom: 20px;
+            font-size: 1.8rem;
+            font-weight: 300;
+            margin-bottom: 15px;
+            opacity: 0.9;
+            animation: fadeInDown 1.1s ease;
         }
 
-        .hero p {
-            font-size: 1.4rem;
-            max-width: 800px;
-            margin-bottom: 35px;
+        .hero h2 strong {
+            color: var(--accent-gold);
+            font-weight: 600;
+        }
+
+        .hero .tagline {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 10px auto 30px;
             font-weight: 300;
-            border-top: 1px solid rgba(255,255,255,0.2);
-            border-bottom: 1px solid rgba(255,255,255,0.2);
-            padding: 15px 0;
+            opacity: 0.85;
+            border-top: 1px solid rgba(255,255,255,0.15);
+            border-bottom: 1px solid rgba(255,255,255,0.15);
+            padding: 18px 0;
+            animation: fadeInDown 1.2s ease;
+        }
+
+        .hero .tagline i {
+            color: var(--accent-gold);
+            margin: 0 5px;
+        }
+
+        /* Logo Badge in Hero */
+        .hero-logo-badge {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(8px);
+            padding: 15px 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            margin-bottom: 30px;
+            animation: fadeInDown 1.3s ease;
+        }
+
+        .hero-logo-badge img {
+            height: 65px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .hero-logo-badge .tagline-text {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            font-weight: 300;
+            letter-spacing: 1px;
+            border-left: 2px solid rgba(255,255,255,0.2);
+            padding-left: 20px;
+        }
+
+        .hero-logo-badge .tagline-text strong {
+            color: var(--accent-gold);
+            font-weight: 600;
         }
 
         /* --- LIVE SEARCH FILTER BAR --- */
         .search-container {
             background: white;
-            padding: 20px;
-            border-radius: 50px;
+            padding: 8px;
+            border-radius: 60px;
             display: flex;
-            gap: 15px;
+            gap: 8px;
             width: 90%;
             max-width: 750px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+            animation: fadeInUp 1.4s ease;
+            position: relative;
+            z-index: 2;
         }
 
         .search-container input {
             flex: 1;
             border: none;
-            padding: 10px 20px;
+            padding: 15px 25px;
             font-size: 1rem;
             outline: none;
+            border-radius: 60px;
+            background: transparent;
         }
 
         .search-container button {
-            background: var(--primary);
+            background: var(--accent);
             color: white;
             border: none;
-            padding: 12px 30px;
-            border-radius: 30px;
+            padding: 15px 35px;
+            border-radius: 60px;
             cursor: pointer;
             font-weight: 600;
-            transition: background 0.3s;
+            transition: all 0.3s;
+            white-space: nowrap;
         }
 
         .search-container button:hover {
-            background: var(--primary-light);
+            background: var(--accent-hover);
+            transform: scale(1.02);
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Floating Stats */
+        .stats-float {
+            display: flex;
+            gap: 40px;
+            margin-top: 40px;
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 1.6s ease;
+        }
+
+        .stats-float .stat {
+            text-align: center;
+        }
+
+        .stats-float .stat .number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--accent-gold);
+        }
+
+        .stats-float .stat .label {
+            font-size: 0.8rem;
+            opacity: 0.7;
         }
 
         /* --- SECTION SETTINGS --- */
@@ -184,7 +403,7 @@
         }
 
         .section-header h2 {
-            font-size: 2.3rem;
+            font-size: 2.4rem;
             color: var(--primary);
             position: relative;
             display: inline-block;
@@ -193,7 +412,7 @@
 
         .section-header h2::after {
             content: '';
-            width: 60px;
+            width: 70px;
             height: 4px;
             background: var(--accent);
             position: absolute;
@@ -203,10 +422,16 @@
             border-radius: 2px;
         }
 
+        .section-header .subtitle {
+            color: #64748b;
+            margin-top: 10px;
+            font-size: 1rem;
+        }
+
         /* --- SPECIALITY CARDS --- */
         .specs-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
             margin-bottom: 80px;
         }
@@ -214,10 +439,10 @@
         .spec-card {
             background: white;
             padding: 40px 30px;
-            border-radius: 16px;
+            border-radius: 20px;
             text-align: center;
             box-shadow: var(--card-shadow);
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
             overflow: hidden;
         }
@@ -229,48 +454,67 @@
             left: 0;
             width: 100%;
             height: 5px;
-            background: var(--accent);
+            background: linear-gradient(90deg, var(--accent), var(--accent-gold));
         }
 
         .spec-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+            transform: translateY(-12px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
         }
 
         .spec-icon {
-            width: 70px;
-            height: 70px;
-            background: #fff4e6;
-            border-radius: 50px;
+            width: 75px;
+            height: 75px;
+            background: linear-gradient(135deg, #fff4e6, #fff0e0);
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto 20px auto;
+            font-size: 2rem;
+            color: var(--accent);
         }
 
         .spec-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 15px;
+            font-size: 1.3rem;
+            margin-bottom: 12px;
             color: var(--primary);
         }
 
-        /* --- TOUR PACKAGES INTERACTIVE GRID --- */
+        .spec-card p {
+            color: #475569;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .spec-card .highlight-num {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--accent);
+            display: block;
+            line-height: 1;
+            margin: 5px 0;
+        }
+
+        /* --- TOUR PACKAGES --- */
         .tour-tabs {
             display: flex;
             justify-content: center;
-            gap: 15px;
+            gap: 12px;
             margin-bottom: 40px;
+            flex-wrap: wrap;
         }
 
         .tab-btn {
-            padding: 12px 25px;
+            padding: 12px 28px;
             background: white;
             border: 2px solid var(--primary);
             color: var(--primary);
-            border-radius: 30px;
+            border-radius: 50px;
             cursor: pointer;
             font-weight: 600;
             transition: all 0.3s;
+            font-size: 0.9rem;
         }
 
         .tab-btn.active, .tab-btn:hover {
@@ -280,44 +524,66 @@
 
         .tours-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
             gap: 30px;
             margin-bottom: 80px;
         }
 
         .tour-item {
             background: white;
-            border-radius: 16px;
+            border-radius: 20px;
             overflow: hidden;
             box-shadow: var(--card-shadow);
-            transition: all 0.3s;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         .tour-item:hover {
-            transform: scale(1.02);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
         }
 
-        .tour-img-placeholder {
-            height: 200px;
-            background: #cbd5e1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #64748b;
-            font-weight: 600;
+        .tour-img {
+            height: 220px;
+            background-size: cover;
+            background-position: center;
             position: relative;
         }
 
-        .tour-tag {
+        .tour-img .tour-tag {
             position: absolute;
             top: 15px;
             left: 15px;
             background: var(--accent);
             color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
+            padding: 6px 18px;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .tour-img .tour-price-tag {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(5px);
+            color: white;
+            padding: 6px 18px;
+            border-radius: 30px;
             font-size: 0.8rem;
             font-weight: 600;
+        }
+
+        .tour-img .tour-overlay-title {
+            position: absolute;
+            bottom: 15px;
+            left: 15px;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
         }
 
         .tour-info {
@@ -325,8 +591,9 @@
         }
 
         .tour-info h3 {
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             color: var(--primary);
+            font-size: 1.2rem;
         }
 
         .tour-features-list {
@@ -334,46 +601,173 @@
         }
 
         .tour-features-list li {
-            padding: 8px 0;
+            padding: 7px 0;
             border-bottom: 1px solid #f1f5f9;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
         }
 
-        .tour-features-list li::after {
-            content: '➔';
+        .tour-features-list li:last-child {
+            border-bottom: none;
+        }
+
+        .tour-features-list li .feature-icon {
             color: var(--accent);
-            font-size: 0.8rem;
+            margin-right: 10px;
         }
 
-        /* --- TESTIMONIALS SLIDER ARCHITECTURE --- */
+        .tour-features-list li .feature-arrow {
+            color: var(--accent);
+            font-size: 0.7rem;
+        }
+
+        /* --- SERVICES / FACILITIES SECTION --- */
+        .services-section {
+            background: white;
+            padding: 60px 0;
+            border-radius: 20px;
+            margin-bottom: 80px;
+            box-shadow: var(--card-shadow);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            padding: 0 20px;
+        }
+
+        .service-item {
+            text-align: center;
+            padding: 20px 10px;
+            border-radius: 12px;
+            transition: all 0.3s;
+            background: var(--bg-light);
+        }
+
+        .service-item:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-5px);
+        }
+
+        .service-item i {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .service-item:hover i {
+            color: white;
+        }
+
+        .service-item span {
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* --- SPECIAL TOURS TYPES --- */
+        .tour-types {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin: 20px 0 30px;
+        }
+
+        .tour-type-badge {
+            background: white;
+            padding: 10px 22px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--primary);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            border: 1px solid #e8edf4;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .tour-type-badge:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+            border-color: var(--primary);
+        }
+
+        .tour-type-badge i {
+            color: var(--accent);
+        }
+
+        .tour-type-badge:hover i {
+            color: white;
+        }
+
+        /* --- TESTIMONIALS --- */
         .testimonials {
-            background: #edf2f9;
+            background: linear-gradient(135deg, #edf2f9, #e2e8f0);
             padding: 60px 0;
             border-radius: 20px;
             margin-bottom: 80px;
         }
 
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 0 20px;
+        }
+
         .testimonial-card {
             background: white;
-            max-width: 700px;
-            margin: 0 auto;
-            padding: 40px;
+            padding: 35px;
             border-radius: 16px;
             text-align: center;
             box-shadow: var(--card-shadow);
+            transition: all 0.3s;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .testimonial-card .stars {
+            color: var(--accent-gold);
+            font-size: 1.2rem;
+            margin-bottom: 12px;
         }
 
         .testimonial-card p {
             font-style: italic;
-            font-size: 1.1rem;
-            margin-bottom: 20px;
+            font-size: 1rem;
             color: #475569;
+            line-height: 1.7;
+            margin-bottom: 15px;
         }
 
-        /* --- FAQ ACCORDION SECTION --- */
+        .testimonial-card .client-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .testimonial-card .client-info .name {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .testimonial-card .client-info .city {
+            font-size: 0.8rem;
+            color: #94a3b8;
+        }
+
+        /* --- FAQ --- */
         .faq-container {
             max-width: 800px;
             margin: 0 auto 80px auto;
@@ -382,13 +776,18 @@
         .faq-item {
             background: white;
             margin-bottom: 15px;
-            border-radius: 8px;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+            transition: all 0.3s;
+        }
+
+        .faq-item:hover {
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
         }
 
         .faq-question {
-            padding: 20px;
+            padding: 20px 25px;
             font-weight: 600;
             color: var(--primary);
             cursor: pointer;
@@ -396,85 +795,274 @@
             justify-content: space-between;
             align-items: center;
             user-select: none;
+            transition: all 0.3s;
+        }
+
+        .faq-question:hover {
+            background: #f8fafc;
+        }
+
+        .faq-question .faq-toggle {
+            font-size: 1.2rem;
+            color: var(--accent);
+            transition: transform 0.3s;
+        }
+
+        .faq-question.active .faq-toggle {
+            transform: rotate(45deg);
         }
 
         .faq-answer {
-            padding: 0 20px;
+            padding: 0 25px;
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.3s ease, padding 0.3s ease;
+            transition: max-height 0.4s ease, padding 0.4s ease;
             color: #475569;
-            background: #fafafa;
+            background: #fafbfc;
         }
 
-        /* --- CONTACT & FOOTER --- */
+        .faq-answer.open {
+            padding: 20px 25px;
+            max-height: 300px;
+        }
+
+        /* --- CONTACT CTA --- */
         .contact-cta {
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
             color: white;
-            border-radius: 20px;
-            padding: 50px;
+            border-radius: 24px;
+            padding: 50px 40px;
             text-align: center;
-            box-shadow: var(--card-shadow);
+            box-shadow: 0 20px 60px rgba(26, 42, 108, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-cta::before {
+            content: '✈️';
+            position: absolute;
+            font-size: 15rem;
+            opacity: 0.04;
+            top: -50px;
+            right: -30px;
+            transform: rotate(-15deg);
         }
 
         .contact-cta h3 {
             font-size: 2.2rem;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-cta p {
+            opacity: 0.85;
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+            position: relative;
+            z-index: 1;
         }
 
         .contact-links {
             display: flex;
             justify-content: center;
             gap: 20px;
-            margin-top: 30px;
             flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
         }
 
         .contact-card-btn {
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(5px);
-            padding: 15px 30px;
-            border-radius: 50px;
+            background: rgba(255,255,255,0.12);
+            backdrop-filter: blur(8px);
+            padding: 16px 35px;
+            border-radius: 60px;
             color: white;
             text-decoration: none;
             font-weight: 600;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             border: 1px solid rgba(255,255,255,0.2);
             transition: all 0.3s;
+            font-size: 1rem;
         }
 
         .contact-card-btn:hover {
             background: var(--accent);
-            transform: translateY(-3px);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
+            border-color: var(--accent);
         }
 
+        .contact-card-btn.whatsapp:hover {
+            background: #25D366;
+            border-color: #25D366;
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+        }
+
+        .contact-card-btn i {
+            font-size: 1.3rem;
+        }
+
+        /* --- ADDRESS SECTION --- */
+        .address-section {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin-top: 30px;
+            text-align: center;
+            box-shadow: var(--card-shadow);
+        }
+
+        .address-section i {
+            color: var(--accent);
+            font-size: 1.5rem;
+            margin-right: 10px;
+        }
+
+        .address-section .address-text {
+            font-weight: 500;
+            color: var(--primary);
+        }
+
+        /* --- FOOTER --- */
         footer {
             background: #0f172a;
             color: #94a3b8;
             text-align: center;
-            padding: 30px 20px;
+            padding: 40px 20px;
             margin-top: 60px;
             font-size: 0.9rem;
             border-top: 4px solid var(--accent);
         }
 
-        /* --- ANIMATIONS --- */
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-3px); }
-            to { opacity: 1; transform: translateY(0); }
+        footer .footer-brand {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            font-family: 'Yatra One', cursive;
+            font-size: 1.3rem;
+            color: var(--accent-gold);
+            margin-bottom: 10px;
         }
 
-        /* --- RESPONSIVE SETTINGS --- */
-        @media (max-width: 768px) {
-            nav { padding: 15px 20px; }
-            .nav-links { display: none; } /* Can be expanded into a mobile menu drawer */
-            .hero h1 { font-size: 2.2rem; }
+        footer .footer-brand img {
+            height: 40px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        footer .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 15px 0;
+            flex-wrap: wrap;
+        }
+
+        footer .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        footer .footer-links a:hover {
+            color: var(--accent-gold);
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 992px) {
+            .hero h1 { font-size: 2.8rem; }
             .hero h2 { font-size: 1.4rem; }
-            .hero p { font-size: 1.1rem; }
-            .search-container { flex-direction: column; border-radius: 20px; }
+        }
+
+        @media (max-width: 768px) {
+            nav { padding: 12px 20px; }
+            
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(26, 42, 108, 0.98);
+                padding: 20px;
+                gap: 15px;
+                backdrop-filter: blur(12px);
+                border-top: 1px solid rgba(255,255,255,0.05);
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-links a { font-size: 1rem; }
+
+            .hero h1 { font-size: 2.2rem; }
+            .hero h2 { font-size: 1.2rem; }
+            .hero .tagline { font-size: 1rem; }
+
+            .hero-logo-badge {
+                flex-direction: column;
+                padding: 20px;
+                gap: 12px;
+            }
+
+            .hero-logo-badge .tagline-text {
+                border-left: none;
+                padding-left: 0;
+                border-top: 1px solid rgba(255,255,255,0.15);
+                padding-top: 12px;
+                font-size: 0.8rem;
+            }
+
+            .search-container {
+                flex-direction: column;
+                border-radius: 20px;
+                padding: 12px;
+            }
+
             .search-container button { width: 100%; }
+
+            .stats-float {
+                gap: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .stats-float .stat .number { font-size: 1.5rem; }
+
+            .section-header h2 { font-size: 1.8rem; }
+
+            .specs-grid { grid-template-columns: 1fr; }
+            .tours-grid { grid-template-columns: 1fr; }
+            .testimonial-grid { grid-template-columns: 1fr; }
+
+            .contact-cta { padding: 30px 20px; }
+            .contact-cta h3 { font-size: 1.6rem; }
+            .contact-links { flex-direction: column; align-items: center; }
+            .contact-card-btn { width: 100%; justify-content: center; }
+
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .tour-types { gap: 8px; }
+            .tour-type-badge { font-size: 0.75rem; padding: 8px 16px; }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 1.8rem; }
+            .hero h2 { font-size: 1rem; }
+            .logo-text .brand { font-size: 1rem; }
+            .logo img { width: 40px; height: 40px; }
+            .services-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+            .service-item { padding: 15px 8px; }
+            .service-item i { font-size: 1.5rem; }
         }
     </style>
 </head>
@@ -483,198 +1071,442 @@
     <!-- STICKY HEADER NAVIGATION -->
     <nav>
         <div class="logo">
-            🙏 <span>स्वानंद यात्रा</span>
+            <img src="https://drive.google.com/file/d/1EdKg26YcLSW_HpIfyS8Bpq6FDHjTzHA4/view?usp=sharing" alt="Swanand Dev Darshan Logo">
+            <div class="logo-text">
+                <span class="brand">🙏 <span>स्वानंद</span> यात्रा</span>
+                <span class="sub">RUTUJA INTERNATIONAL HOLIDAYS</span>
+            </div>
         </div>
-        <ul class="nav-links">
+        <ul class="nav-links" id="navLinks">
             <li><a href="#home">मुख्यपृष्ठ</a></li>
             <li><a href="#speciality">वैशिष्ट्ये</a></li>
             <li><a href="#tours">यात्रा पॅकेजेस</a></li>
+            <li><a href="#services">सुविधा</a></li>
             <li><a href="#faq">प्रश्नावली</a></li>
-            <li><a href="tel:9284551534" class="book-btn">📞 9284551534</a></li>
+            <li><a href="tel:9284551534" class="book-btn"><i class="fas fa-phone"></i> 9284551534</a></li>
         </ul>
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </nav>
 
-    <!-- HERO PROFILE DISPLAY -->
+    <!-- HERO SECTION -->
     <section class="hero" id="home">
-        <h1>RUTUJA INTERNATIONAL HOLIDAYS</h1>
-        <h2>स्वानंद देवदर्शन यात्रा कंपनी, हडपसर पुणे</h2>
-        <p>✨ विश्वासार्हतेचे नाव म्हणजे स्वानंद! आता कुठेही फिरा, फक्त स्वानंद सोबत. ✨</p>
-        
-        <!-- Live Filter Visual Module -->
-        <div class="search-container">
-            <input type="text" placeholder="तुमची आवडती ट्रीप किंवा तीर्थक्षेत्र शोधा... (उदा. चारधाम, काश्मीर)">
-            <button type="button">शोधा</button>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-award"></i> विश्वासार्हतेचे नाव - 15+ वर्षे
+            </div>
+
+            <!-- Logo Badge in Hero -->
+            <div class="hero-logo-badge">
+                <img src="https://chatgpt.com/backend-api/estuary/content?id=file_0000000010c8820885043c49bcd821fe&ts=496215&p=fs&cid=1&sig=8b84e3f84c0f0569bc7636174eda5efd6a7eabc80ec5e8ae54843be2547067d5&v=0" alt="Swanand Dev Darshan Logo">
+                <div class="tagline-text">
+                    <strong>श्री स्वानंद</strong> देव दर्शन यात्रा प्रा. लि.
+                </div>
+            </div>
+
+            <h1>RUTUJA <span class="highlight">INTERNATIONAL</span> HOLIDAYS</h1>
+            <h2>🙏 <strong>स्वानंद देवदर्शन</strong> यात्रा कंपनी, हडपसर पुणे</h2>
+            <div class="tagline">
+                <i class="fas fa-star"></i> विश्वासार्हतेचे नाव म्हणजे स्वानंद! <i class="fas fa-star"></i><br>
+                आता कुठेही फिरा, फक्त स्वानंद सोबत
+            </div>
+
+            <div class="search-container">
+                <input type="text" id="tourSearch" placeholder="🔍 तुमची आवडती ट्रीप किंवा तीर्थक्षेत्र शोधा... (उदा. चारधाम, काश्मीर)" onkeyup="searchTours()">
+                <button type="button" onclick="searchTours()"><i class="fas fa-search"></i> शोधा</button>
+            </div>
+
+            <div class="stats-float">
+                <div class="stat">
+                    <div class="number">15+</div>
+                    <div class="label">वर्षे अनुभव</div>
+                </div>
+                <div class="stat">
+                    <div class="number">50,000+</div>
+                    <div class="label">समाधानी प्रवासी</div>
+                </div>
+                <div class="stat">
+                    <div class="number">500+</div>
+                    <div class="label">यात्रा पॅकेजेस</div>
+                </div>
+            </div>
         </div>
     </section>
 
     <div class="container">
 
-        <!-- BRAND VALUE SECTORS -->
+        <!-- SPECIALITY SECTION -->
         <section id="speciality">
             <div class="section-header">
                 <h2>🍲 आमची खास वैशिष्ट्ये</h2>
+                <p class="subtitle">आमच्या यात्रेत मिळणाऱ्या विशेष सुविधा</p>
             </div>
             <div class="specs-grid">
                 <div class="spec-card">
-                    <div class="spec-icon">
-                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#ff9933" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-                    </div>
+                    <div class="spec-icon"><i class="fas fa-utensils"></i></div>
                     <h3>महाराष्ट्रीयन जेवण</h3>
                     <p>प्रवासातही घरची चव! आम्ही संपूर्ण प्रवासात शुद्ध आणि रुचकर पारंपारिक महाराष्ट्रीयन जेवणाची उत्तम सोय करतो.</p>
                 </div>
                 <div class="spec-card">
-                    <div class="spec-icon">
-                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#ff9933" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M15 3v18M3 9h18M3 15h18"/></svg>
-                    </div>
+                    <div class="spec-icon"><i class="fas fa-truck-kitchen"></i></div>
                     <h3>स्वतःचे भव्य किचन सेटअप</h3>
-                    <p>एकाच वेळी ५०० लोकांचे अद्ययावत व दर्जेदार जेवण बनवण्याची स्वतःची सुसज्ज फिरती किचन व्यवस्था.</p>
+                    <p><span class="highlight-num">500</span> लोकांचे एकाच वेळी अद्ययावत व दर्जेदार जेवण बनवण्याची स्वतःची सुसज्ज फिरती किचन व्यवस्था.</p>
                 </div>
                 <div class="spec-card">
-                    <div class="spec-icon">
-                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#ff9933" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                    </div>
+                    <div class="spec-icon"><i class="fas fa-user-chef"></i></div>
                     <h3>अनुभवी आचारी स्टाफ</h3>
                     <p>प्रत्येक यात्रेत दर्जेदार चव आणि उत्कृष्ट स्वच्छतेची काळजी घेण्यासाठी आमचे खास महाराष्ट्रीयन शेफ सोबत असतात.</p>
                 </div>
             </div>
         </section>
 
-        <!-- TOUR SELECTION MATRIX -->
+        <!-- SERVICES / FACILITIES SECTION -->
+        <section id="services" class="services-section">
+            <div class="section-header">
+                <h2>🎫 आमच्या सुविधा</h2>
+                <p class="subtitle">एकाच ठिकाणी सर्व प्रकारच्या प्रवास सेवा</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-item"><i class="fas fa-plane"></i><span>विमान बुकिंग</span></div>
+                <div class="service-item"><i class="fas fa-train"></i><span>रेल्वे बुकिंग</span></div>
+                <div class="service-item"><i class="fas fa-ship"></i><span>क्रूझ बुकिंग</span></div>
+                <div class="service-item"><i class="fas fa-bus"></i><span>बस बुकिंग</span></div>
+                <div class="service-item"><i class="fas fa-hotel"></i><span>होटेल बुकिंग</span></div>
+                <div class="service-item"><i class="fas fa-car"></i><span>कार बुकिंग</span></div>
+                <div class="service-item"><i class="fas fa-shield-alt"></i><span>प्रवास विमा</span></div>
+                <div class="service-item"><i class="fas fa-hand-holding-usd"></i><span>प्रवास कर्ज</span></div>
+            </div>
+
+            <div style="margin-top: 30px; text-align: center;">
+                <h4 style="color: var(--primary); margin-bottom: 15px;">🌟 विशेष यात्रा प्रकार</h4>
+                <div class="tour-types">
+                    <span class="tour-type-badge"><i class="fas fa-crown"></i> VIP टूर</span>
+                    <span class="tour-type-badge"><i class="fas fa-users"></i> फॅमिली टूर</span>
+                    <span class="tour-type-badge"><i class="fas fa-user-friends"></i> फ्रेंड्स टूर</span>
+                    <span class="tour-type-badge"><i class="fas fa-user-plus"></i> ग्रुप टूर</span>
+                    <span class="tour-type-badge"><i class="fas fa-heart"></i> हनीमून टूर</span>
+                    <span class="tour-type-badge"><i class="fas fa-female"></i> ओन्ली लेडीज टूर</span>
+                    <span class="tour-type-badge"><i class="fas fa-walking"></i> सिनियर सिटिझन टूर</span>
+                    <span class="tour-type-badge"><i class="fas fa-users-cog"></i> प्रायव्हेट टूर</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- TOUR SECTION -->
         <section id="tours">
             <div class="section-header">
                 <h2>✈️ आमच्या प्रमुख लोकप्रिय यात्रा</h2>
+                <p class="subtitle">तुमच्या आवडीची यात्रा निवडा</p>
             </div>
 
             <div class="tour-tabs">
-                <button class="tab-btn active" onclick="filterTours('all')">सर्व यात्रा</button>
-                <button class="tab-btn" onclick="filterTours('spiritual')">देवदर्शन</button>
-                <button class="tab-btn" onclick="filterTours('domestic')">भारत दर्शन</button>
-                <button class="tab-btn" onclick="filterTours('international')">इंटरनॅशनल</button>
+                <button class="tab-btn active" onclick="filterTours('all', this)"><i class="fas fa-globe"></i> सर्व यात्रा</button>
+                <button class="tab-btn" onclick="filterTours('spiritual', this)"><i class="fas fa-om"></i> देवदर्शन</button>
+                <button class="tab-btn" onclick="filterTours('domestic', this)"><i class="fas fa-flag"></i> भारत दर्शन</button>
+                <button class="tab-btn" onclick="filterTours('international', this)"><i class="fas fa-globe-asia"></i> इंटरनॅशनल</button>
             </div>
 
-            <div class="tours-grid">
-                <!-- Card 1: Spiritual -->
-                <div class="tour-item spiritual-card">
-                    <div class="tour-img-placeholder" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1602643163983-ed0babc39797?auto=format&fit=crop&w=500&q=80') center/cover;">
-                        <span class="tour-tag">तीर्थक्षेत्र</span>
-                        <div style="position: absolute; bottom: 15px; left: 20px; color: white; font-size: 1.3rem; font-weight: bold;">🔱 देवदर्शन विशेष</div>
+            <div class="tours-grid" id="toursGrid">
+                <!-- Spiritual Tour -->
+                <div class="tour-item spiritual-card" data-name="पवित्र पावन यात्रा चारधाम केदारनाथ बद्रीनाथ ज्योतिर्लिंग">
+                    <div class="tour-img" style="background-image: url('https://images.unsplash.com/photo-1585409677983-0f6c41ca9c3b?auto=format&fit=crop&w=600&q=80');">
+                        <span class="tour-tag"><i class="fas fa-om"></i> तीर्थक्षेत्र</span>
+                        <span class="tour-price-tag">₹ 11,500/-</span>
+                        <div class="tour-overlay-title">🔱 देवदर्शन विशेष</div>
                     </div>
                     <div class="tour-info">
                         <h3>पवित्र पावन यात्रा</h3>
-                        <ul class="tour-list tour-features-list">
-                            <li>चारधाम यात्रा <small>(केदारनाथ, बद्रीनाथ)</small></li>
-                            <li>१२ ज्योतिर्लिंग व साडेतीन पीठे</li>
-                            <li>अयोध्या, काशी, प्रयाग व वृंदावन</li>
-                            <li>अष्टविनायक यात्रा व अमरनाथ</li>
-                            <li>गंगासागर - जगन्नाथ पुरी</li>
-                            <li>मानस सरोवर व बालाजी दर्शन</li>
+                        <ul class="tour-features-list">
+                            <li><span><i class="fas fa-check-circle feature-icon"></i> चारधाम यात्रा (केदारनाथ, बद्रीनाथ)</span> <span class="feature-arrow">➔</span></li>
+                            <li><span><i class="fas fa-check-circle feature-icon"></i> १२ ज्योतिर्लिंग व साडेतीन पीठे</span> <span class="feature-arrow">➔</span></li>
+                            <li><span><i class="fas fa-check-circle feature-icon"></i> अयोध्या, काशी, प्रयाग व वृंदावन</span> <span class="feature-arrow">➔</span></li>
+                            <li><span><i class="fas fa-check-circle feature-icon"></i> अष्टविनायक यात्रा व अमरनाथ</span> <span class="feature-arrow">➔</span></li>
+                            <li><span><i class="fas fa-check-circle feature-icon"></i> गंगासागर - जगन्नाथ पुरी</span> <span class="feature-arrow">➔</span></li>
+                            <li><span><i class="fas fa-check-circle feature-icon"></i> मानस सरोवर व बालाजी दर्शन</span> <span class="feature-arrow">➔</span></li>
                         </ul>
                     </div>
                 </div>
 
-                <!-- Card 2: Domestic -->
-                <div class="tour-item domestic-card">
-                    <div class="tour-img-placeholder" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1589182373726-e4f658ab50f0?auto=format&fit=crop&w=500&q=80') center/cover;">
-                        <span class="tour-tag">भारत दर्शन</span>
-                        <div style="position: absolute; bottom: 15px; left: 20px; color: white; font-size: 1.3rem; font-weight: bold;">🏔️ डोमेस्टिक सुट्ट्या</div>
+                <!-- Domestic Tour -->
+                <div class="tour-item domestic-card" data-name="सुंदर भारत सफर काश्मीर आसाम मेघालय अरुणाचल केरळ अंदमान राजस्थान गुजरात">
+                    <div class="tour-img" style="background-image: url('https://images.unsplash.com/photo-1589182373726-e4f658ab50f0?auto=format&fit=crop&w=600&q=80');">
+                        <span class="tour-tag"><i class="fas fa-flag"></i> भारत दर्शन</span>
+                        <span class="tour-price-tag">₹ 14,500/-</span>
+                        <div class="tour-overlay-title">🏔️ डोमेस्टिक सुट्ट्या</div>
                     </div>
                     <div class="tour-info">
                         <h3>सुंदर भारत सफर</h3>
-                        <ul class="tour-list tour-features-list">
-                            <li>काश्मीर सुंदर खोरे</li>
-                            <li>आसाम - मेघालय - अरुणाचल</li>
-                            <li>थ्री सिस्टर | फोर सिस्टर स्पेशल</li>
-                            <li>केरळ व साऊथ इंडिया पॅकेज</li>
-                            <li>अंदमान-निकोबार व लक्षद्वीप</li>
-                            <li>राजस्थान व गुजरात दर्शन</li>
+                        <ul class="tour-features-list">
+                            <li><span><i class="fas fa-check-circle feature-icon"></i> काश्मीर सुंदर खोरे</span> <span class="feature-arrow">➔</span></li>
+                            <li><span><i class="fas fa-check-circle feature-icon"></i> आसाम - मेघालय - अरुणाचल</span> <span class="feature-arrow">➔</span></li>
+                            <li><span><i class="fas fa-check-circle feature-icon"></i> थ्री सिस्टर | फोर सिस्टर स्पेशल</span> <span class="feature-arrow">➔</span></li>
+                            <li><span><i class="fas fa-check-circle feature-icon"></i> केरळ व साऊथ इंडिया पॅकेज</span> <span class="feature-arrow">➔</span></li>
+                            <li><span><i class="fas fa-check-circle feature-icon"></i> अंदमान-निकोबार व लक्षद्वीप</span> <span class="feature-arrow">➔</span></li>
+                            <li><span><i class="fas fa-check-circle feature-icon"></i> राजस्थान व गुजरात दर्शन</span> <span class="feature-arrow">➔</span></li>
                         </ul>
                     </div>
                 </div>
 
-                <!-- Card 3: International -->
-                <div class="tour-item international-card">
-                    <div class="tour-img-placeholder" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1527668752968-14dc70a27c95?auto=format&fit=crop&w=500&q=80') center/cover;">
-                        <span class="tour-tag">परदेश वारी</span>
-                        <div style="position: absolute; bottom: 15px; left: 20px; color: white; font-size: 1.3rem; font-weight: bold;">🌍 आंतरराष्ट्रीय ट्रीप</div>
+                <!-- International Tour -->
+                <div class="tour-item international-card" data-name="ग्लोबल हॉलिडेज स्वीटझर्लंड दुबई श्रीलंका नेपाळ भूतान मालदीव">
+                    <div class="tour-img" style="background-image: url('https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=600&q=80');">
+                        <span class="tour-tag"><i class="fas fa-globe-asia"></i> परदेश वारी</span>
+                        <span class="tour-price-tag">₹ 37,500/-</span>
+                        <div class="tour-overlay-title">🌍 आंतरराष्ट्रीय ट्रीप</div>
                     </div>
                     <div class="tour-info">
                         <h3>ग्लोबल हॉलिडेज</h3>
-                        <ul class="tour-list tour-features-list">
-                            <li>स्वीटझर्लंड (युरोप स्पेशल)</li>
-                            <li>दुबई आखाती सफर</li>
-                            <li>श्रीलंका निसर्ग दर्शन</li>
-                            <li>नेपाळ व भूतान शेजारी देश</li>
-                            <li>मालदीव बीच हॉलिडे</li>
+                        <ul class="tour-features-list">
+                            <li><span><i class="fas fa-check-circle feature-icon"></i> स्वीटझर्लंड (युरोप स्पेशल)</span> <span class="feature-arrow">➔</span></li>
+                            <li><span><i class="fas fa-check-circle feature-icon"></i> दुबई आखाती सफर</span> <span class="feature-arrow">➔</span></li>
+                            <li><span><i class="fas fa-check-circle feature-icon"></i> श्रीलंका निसर्ग दर्शन</span> <span class="feature-arrow">➔</span></li>
+                            <li><span><i class="fas fa-check-circle feature-icon"></i> नेपाळ व भूतान शेजारी देश</span> <span class="feature-arrow">➔</span></li>
+                            <li><span><i class="fas fa-check-circle feature-icon"></i> मालदीव बीच हॉलिडे</span> <span class="feature-arrow">➔</span></li>
                         </ul>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SOCIAL PROOF MODULE -->
+        <!-- TESTIMONIALS -->
         <section class="testimonials">
             <div class="section-header">
-                <h2>✨ समाधानी प्रवाशांचे अनुभव</h2>
+                <h2>⭐ समाधानी प्रवाशांचे अनुभव</h2>
+                <p class="subtitle">आमच्या प्रवाशांनी शेअर केलेले अनुभव</p>
             </div>
-            <div class="testimonial-card">
-                <p>"स्वानंद सोबतची आमची चारधाम यात्रा खूपच अविस्मरणीय झाली. प्रवासात प्रत्येक ठिकाणी वेळेवर गरमागरम महाराष्ट्रीयन जेवण मिळणे ही आमच्यासाठी सर्वात मोठी सोय होती! आचारी काकांचे मनापासून आभार."</p>
-                <strong style="color: var(--primary)">- रमेश सोनावणे (हडपसर, पुणे)</strong>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p>"स्वानंद सोबतची आमची चारधाम यात्रा खूपच अविस्मरणीय झाली. प्रवासात प्रत्येक ठिकाणी वेळेवर गरमागरम महाराष्ट्रीयन जेवण मिळणे ही आमच्यासाठी सर्वात मोठी सोय होती!"</p>
+                    <div class="client-info">
+                        <div>
+                            <div class="name">रमेश सोनावणे</div>
+                            <div class="city">📍 हडपसर, पुणे</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p>"आमच्या फॅमिली टूरसाठी स्वानंद हा सर्वोत्तम पर्याय होता. छोट्या गोष्टींचीही काळजी घेतली गेली. विशेषतः वृद्धांसाठी खूप सोयीस्कर व्यवस्था होती."</p>
+                    <div class="client-info">
+                        <div>
+                            <div class="name">स्नेहल जोशी</div>
+                            <div class="city">📍 कोथरूड, पुणे</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p>"काश्मीर यात्रेत स्वानंदची सेवा खूपच उत्तम होती. हॉटेल, जेवण, वाहतूक सगळं उत्तम. आमच्या ग्रुपला खूप आनंद झाला. नक्कीच पुन्हा येऊ!"</p>
+                    <div class="client-info">
+                        <div>
+                            <div class="name">विक्रम पाटील</div>
+                            <div class="city">📍 स्वारगेट, पुणे</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- FAQ ACCORDION INTERACTIVITY -->
+        <!-- FEATURED TOUR - VRINDAVAN DHAM -->
+        <section style="margin-bottom: 80px;">
+            <div class="section-header">
+                <h2>🙏 विशेष यात्रा - वृंदावन धाम</h2>
+                <p class="subtitle">दि. 15 नोव्हेंबर 2026 | 7 दिवस</p>
+            </div>
+            <div style="background: linear-gradient(135deg, #fff8f0, #fff0e6); border-radius: 24px; padding: 40px; box-shadow: var(--card-shadow);">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: center;">
+                    <div>
+                        <h3 style="color: var(--primary); font-size: 1.6rem; margin-bottom: 10px;">✨ श्री स्वानंद देव दर्शन यात्रा</h3>
+                        <p style="font-style: italic; color: #b45309; font-size: 1.2rem; margin-bottom: 20px;">
+                            <i class="fas fa-music"></i> राधे चल माझ्या गावाला जाऊ | सार गोकुळ फिरून पाहू
+                        </p>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 20px;">
+                            <span style="background: white; padding: 6px 14px; border-radius: 8px; font-size: 0.85rem;"><i class="fas fa-check-circle" style="color: var(--accent);"></i> वृंदावन धाम</span>
+                            <span style="background: white; padding: 6px 14px; border-radius: 8px; font-size: 0.85rem;"><i class="fas fa-check-circle" style="color: var(--accent);"></i> गोकुळ</span>
+                            <span style="background: white; padding: 6px 14px; border-radius: 8px; font-size: 0.85rem;"><i class="fas fa-check-circle" style="color: var(--accent);"></i> मथुरा</span>
+                            <span style="background: white; padding: 6px 14px; border-radius: 8px; font-size: 0.85rem;"><i class="fas fa-check-circle" style="color: var(--accent);"></i> बरसाना</span>
+                            <span style="background: white; padding: 6px 14px; border-radius: 8px; font-size: 0.85rem;"><i class="fas fa-check-circle" style="color: var(--accent);"></i> नंदगाव</span>
+                            <span style="background: white; padding: 6px 14px; border-radius: 8px; font-size: 0.85rem;"><i class="fas fa-check-circle" style="color: var(--accent);"></i> प्रेम मंदिर</span>
+                            <span style="background: white; padding: 6px 14px; border-radius: 8px; font-size: 0.85rem;"><i class="fas fa-check-circle" style="color: var(--accent);"></i> बाके बिहारी मंदिर</span>
+                            <span style="background: white; padding: 6px 14px; border-radius: 8px; font-size: 0.85rem;"><i class="fas fa-check-circle" style="color: var(--accent);"></i> ताजमहल</span>
+                            <span style="background: white; padding: 6px 14px; border-radius: 8px; font-size: 0.85rem;"><i class="fas fa-check-circle" style="color: var(--accent);"></i> लाल किल्ला</span>
+                            <span style="background: white; padding: 6px 14px; border-radius: 8px; font-size: 0.85rem;"><i class="fas fa-check-circle" style="color: var(--accent);"></i> निधी वन</span>
+                        </div>
+                        <p style="font-size: 0.9rem; color: #475569;"><i class="fas fa-info-circle" style="color: var(--accent);"></i> चलो बासुरी वाले से मिलना है!</p>
+                    </div>
+                    <div style="background: white; padding: 25px; border-radius: 16px;">
+                        <h4 style="color: var(--primary); margin-bottom: 15px;">📋 पॅकेज तपशील</h4>
+                        <div style="display: flex; flex-direction: column; gap: 10px;">
+                            <div style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #f1f5f9;">
+                                <span>💰 नॉन AC स्लीपर</span>
+                                <span style="font-weight: 700; color: var(--accent);">₹ 11,500/-</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #f1f5f9;">
+                                <span>💰 3 टिअर AC</span>
+                                <span style="font-weight: 700; color: var(--accent);">₹ 13,500/-</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #f1f5f9;">
+                                <span>💰 विमान प्रवास</span>
+                                <span style="font-weight: 700; color: var(--accent);">₹ 37,500/-</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #f1f5f9;">
+                                <span>📅 अॅडव्हान्स बुकिंग</span>
+                                <span style="font-weight: 700; color: var(--primary);">₹ 1,000/-</span>
+                            </div>
+                        </div>
+                        <div style="margin-top: 15px; background: #fef3c7; padding: 12px; border-radius: 10px; text-align: center;">
+                            <strong style="color: #b45309;">🔥 सीट लिमिटेड आहे - लवकर बुक करा!</strong>
+                        </div>
+                        <a href="tel:9284551534" style="display: block; margin-top: 15px; background: var(--accent); color: white; text-align: center; padding: 12px; border-radius: 50px; text-decoration: none; font-weight: 600; transition: all 0.3s;">
+                            <i class="fas fa-phone"></i> आता बुक करा: 9284551534
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
         <section id="faq" class="faq-container">
             <div class="section-header">
                 <h2>❓ सतत विचारले जाणारे प्रश्न</h2>
+                <p class="subtitle">तुमच्या यात्रेसंबंधी सर्व शंकांचे निरसन</p>
             </div>
+
             <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">यात्रेत जेवणाची काय व्यवस्था असते? <span>+</span></div>
-                <div class="faq-answer"><p style="padding: 20px 0;">आमच्या प्रत्येक ट्रीपमध्ये स्वतःचे स्वतंत्र मोठे किचन सेटअप आणि अनुभवी महाराष्ट्रीयन आचारी सोबत असतात, जे संपूर्ण प्रवासात अस्सल घरगुती चवीचे शाकाहारी जेवण तयार करतात.</p></div>
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>यात्रेत जेवणाची काय व्यवस्था असते?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>आमच्या प्रत्येक ट्रीपमध्ये स्वतःचे स्वतंत्र मोठे किचन सेटअप आणि अनुभवी महाराष्ट्रीयन आचारी सोबत असतात, जे संपूर्ण प्रवासात अस्सल घरगुती चवीचे शाकाहारी जेवण तयार करतात. ५०० लोकांना एकाच वेळी जेवण देण्याची आमची क्षमता आहे.</p>
+                </div>
             </div>
+
             <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">बुकिंग करण्यासाठी आम्हाला काय करावे लागेल? <span>+</span></div>
-                <div class="faq-answer"><p style="padding: 20px 0;">तुम्ही आमच्या 9284551534 या नंबरवर थेट कॉल किंवा व्हॉट्सॲप मेसेज करून आपल्या आवडीच्या यात्रेची संपूर्ण माहिती पुस्तिका (Itinerary) मिळवू शकता व जागा आरक्षित करू शकता.</p></div>
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>बुकिंग करण्यासाठी आम्हाला काय करावे लागेल?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>तुम्ही आमच्या 9284551534 या नंबरवर थेट कॉल किंवा व्हॉट्सॲप मेसेज करून आपल्या आवडीच्या यात्रेची संपूर्ण माहिती पुस्तिका (Itinerary) मिळवू शकता व जागा आरक्षित करू शकता. अॅडव्हान्स बुकिंग फक्त ₹1,000/- आहे.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>बुकिंग रक्कम परत मिळते का?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>बुकिंग रक्कम कुठल्याही सबबीवर परत मिळत नाही. कृपया बुकिंग करण्यापूर्वी सर्व माहिती व नियम वाचून घ्यावेत. जीवित व वित्तहानीची जबाबदारी कंपनी स्वीकारत नाही.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>यात्रेत कोणत्या सुविधा समाविष्ट आहेत?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>प्रत्येक यात्रेत चहा २ वेळा, नाश्ता १ वेळा, जेवण २ वेळा, रोज १ लिटर पाणी बॉटल, आणि स्टँडर्ड हॉटेल व्यवस्था समाविष्ट आहे. यात्रेच्या प्रकारानुसार वाहतूक आणि इतर सुविधा बदलतात.</p>
+                </div>
             </div>
         </section>
 
-        <!-- CONTACT INTERACTION HUB -->
+        <!-- CONTACT CTA -->
         <section class="contact-cta">
             <h3>आता स्वप्न आवरा, बॅग भरा आणि निघा!</h3>
             <p>तुमच्या संपूर्ण प्रवासाची आणि जेवणाची जबाबदारी आमची. आजच तुमची सीट निश्चित करा.</p>
             <div class="contact-links">
-                <a href="tel:9284551534" class="contact-card-btn">📞 कॉल करा: 9284551534</a>
-                <a href="https://wa.me/919284551534" class="contact-card-btn" style="background:#25D366;">💬 व्हॉट्सॲप चॅट करा</a>
+                <a href="tel:9284551534" class="contact-card-btn"><i class="fas fa-phone"></i> कॉल करा: 9284551534</a>
+                <a href="https://wa.me/919284551534" class="contact-card-btn whatsapp"><i class="fab fa-whatsapp"></i> व्हॉट्सॲप चॅट करा</a>
             </div>
         </section>
 
+        <!-- ADDRESS -->
+        <div class="address-section">
+            <p>
+                <i class="fas fa-map-marker-alt"></i>
+                <span class="address-text">
+                    Sr.No 206, Datta Nagar, Gosavi Wasti, Sadesatra Nali Road, Hadapsar, Pune - 411028
+                </span>
+            </p>
+            <p style="margin-top: 10px;">
+                <i class="fas fa-phone" style="color: var(--accent);"></i> 
+                <strong>9284551534</strong>
+                &nbsp;&nbsp;|&nbsp;&nbsp;
+                <i class="fas fa-envelope" style="color: var(--accent);"></i>
+                <strong>rutujainternationalholidays@gmail.com</strong>
+            </p>
+        </div>
+
     </div>
 
-    <!-- GLOBAL FOOTER SECTION -->
+    <!-- FOOTER -->
     <footer>
+        <div class="footer-brand">
+            <img src="https://chatgpt.com/backend-api/estuary/content?id=file_0000000010c8820885043c49bcd821fe&ts=496215&p=fs&cid=1&sig=8b84e3f84c0f0569bc7636174eda5efd6a7eabc80ec5e8ae54843be2547067d5&v=0" alt="Swanand Dev Darshan Logo">
+            🙏 स्वानंद देवदर्शन यात्रा
+        </div>
+        <p style="font-size: 0.9rem; color: #cbd5e1;">Rutuja International Holidays</p>
+        <div class="footer-links">
+            <a href="#home">मुख्यपृष्ठ</a>
+            <a href="#speciality">वैशिष्ट्ये</a>
+            <a href="#tours">यात्रा</a>
+            <a href="#services">सुविधा</a>
+            <a href="#faq">प्रश्नावली</a>
+        </div>
         <p>© 2026 Rutuja International Holidays | Swanand Dev Darshan Yatra Company, Hadapsar, Pune.</p>
-        <p style="margin-top: 10px; font-size: 0.8rem; color: #64748b;">All Rights Reserved. Crafted for premium user-experience preview.</p>
+        <p style="margin-top: 8px; font-size: 0.75rem; color: #64748b;">All Rights Reserved. | विश्वासार्हतेचे नाव म्हणजे स्वानंद</p>
     </footer>
 
-    <!-- LIGHTWEIGHT INTERACTIVE LOGIC SCRIPT -->
+    <!-- JAVASCRIPT -->
     <script>
+        // --- Mobile Menu Toggle ---
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('open');
+        }
+
+        // Close menu on link click
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navLinks').classList.remove('open');
+            });
+        });
+
+        // --- FAQ Toggle ---
         function toggleFaq(element) {
             const answer = element.nextElementSibling;
-            const span = element.querySelector('span');
-            if (answer.style.maxHeight && answer.style.maxHeight !== '0px') {
-                answer.style.maxHeight = '0px';
-                span.innerText = '+';
+            const toggleIcon = element.querySelector('.faq-toggle');
+            
+            if (answer.classList.contains('open')) {
+                answer.classList.remove('open');
+                toggleIcon.textContent = '+';
             } else {
-                answer.style.maxHeight = answer.scrollHeight + 'px';
-                span.innerText = '-';
+                // Close other open FAQs
+                document.querySelectorAll('.faq-answer.open').forEach(item => {
+                    item.classList.remove('open');
+                    item.previousElementSibling.querySelector('.faq-toggle').textContent = '+';
+                });
+                answer.classList.add('open');
+                toggleIcon.textContent = '−';
             }
         }
 
-        function filterTours(category) {
+        // --- Tour Filter ---
+        function filterTours(category, button) {
             const items = document.querySelectorAll('.tour-item');
             const buttons = document.querySelectorAll('.tab-btn');
             
             buttons.forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
+            if (button) button.classList.add('active');
 
             items.forEach(item => {
                 if (category === 'all') {
@@ -686,6 +1518,58 @@
                 }
             });
         }
+
+        // --- Search Tours ---
+        function searchTours() {
+            const query = document.getElementById('tourSearch').value.toLowerCase().trim();
+            const items = document.querySelectorAll('.tour-item');
+            
+            // Reset filters
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            
+            let hasResults = false;
+            items.forEach(item => {
+                const name = item.getAttribute('data-name') || '';
+                if (query === '' || name.toLowerCase().includes(query)) {
+                    item.style.display = 'block';
+                    hasResults = true;
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // Search on Enter key
+        document.getElementById('tourSearch').addEventListener('keyup', function(e) {
+            if (e.key === 'Enter') {
+                searchTours();
+            }
+        });
+
+        // --- Smooth Scroll for Navigation ---
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href === '#') return;
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    const navHeight = document.querySelector('nav').offsetHeight;
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight - 10;
+                    window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+                }
+            });
+        });
+
+        // --- Sticky Nav Shadow on Scroll ---
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.style.boxShadow = '0 4px 30px rgba(0,0,0,0.25)';
+            } else {
+                nav.style.boxShadow = '0 4px 30px rgba(0,0,0,0.15)';
+            }
+        });
     </script>
 </body>
 </html>

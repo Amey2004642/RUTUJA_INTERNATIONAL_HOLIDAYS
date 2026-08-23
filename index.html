@@ -71,8 +71,8 @@
         }
 
         .logo img {
-            width: 50px;
-            height: 50px;
+            width: 48px;
+            height: 48px;
             object-fit: contain;
             border-radius: 8px;
             background: rgba(255,255,255,0.05);
@@ -86,8 +86,8 @@
         }
 
         .logo-text .brand {
-            font-size: 1.2rem;
-            letter-spacing: 1px;
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
         }
 
         .logo-text .brand span {
@@ -96,16 +96,16 @@
         }
 
         .logo-text .sub {
-            font-size: 0.6rem;
+            font-size: 0.55rem;
             opacity: 0.8;
             font-weight: 300;
-            letter-spacing: 1px;
+            letter-spacing: 0.8px;
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 20px;
+            gap: 18px;
             align-items: center;
         }
 
@@ -114,7 +114,7 @@
             text-decoration: none;
             font-weight: 500;
             transition: all 0.3s;
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             position: relative;
         }
 
@@ -139,7 +139,7 @@
 
         .book-btn {
             background: var(--accent);
-            padding: 10px 22px;
+            padding: 10px 20px;
             border-radius: 30px;
             font-weight: 600 !important;
             transition: all 0.3s !important;
@@ -237,9 +237,9 @@
 
         .hero h1 {
             font-family: 'Yatra One', cursive;
-            font-size: 3.8rem;
+            font-size: 3.5rem;
             margin-bottom: 8px;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
             animation: fadeInDown 1s ease;
             text-shadow: 0 4px 30px rgba(0,0,0,0.2);
         }
@@ -249,7 +249,7 @@
         }
 
         .hero h2 {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             font-weight: 300;
             margin-bottom: 15px;
             opacity: 0.9;
@@ -262,14 +262,14 @@
         }
 
         .hero .tagline {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             max-width: 700px;
             margin: 10px auto 30px;
             font-weight: 300;
             opacity: 0.85;
             border-top: 1px solid rgba(255,255,255,0.15);
             border-bottom: 1px solid rgba(255,255,255,0.15);
-            padding: 18px 0;
+            padding: 16px 0;
             animation: fadeInDown 1.2s ease;
         }
 
@@ -294,18 +294,19 @@
         }
 
         .hero-logo-badge img {
-            height: 65px;
+            height: 60px;
             width: auto;
             object-fit: contain;
         }
 
         .hero-logo-badge .tagline-text {
             font-size: 0.9rem;
-            opacity: 0.8;
+            opacity: 0.85;
             font-weight: 300;
             letter-spacing: 1px;
             border-left: 2px solid rgba(255,255,255,0.2);
             padding-left: 20px;
+            text-align: left;
         }
 
         .hero-logo-badge .tagline-text strong {
@@ -326,6 +327,7 @@
             animation: fadeInUp 1.4s ease;
             position: relative;
             z-index: 2;
+            margin: 0 auto;
         }
 
         .search-container input {
@@ -368,6 +370,7 @@
         /* Floating Stats */
         .stats-float {
             display: flex;
+            justify-content: center;
             gap: 40px;
             margin-top: 40px;
             position: relative;
@@ -395,6 +398,10 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
+        }
+
+        section {
+            padding: 60px 0;
         }
 
         .section-header {
@@ -428,12 +435,76 @@
             font-size: 1rem;
         }
 
+        /* --- FOUNDER SECTION (`founder.png`) --- */
+        .founder-section {
+            background: white;
+            border-radius: 24px;
+            padding: 50px;
+            box-shadow: var(--card-shadow);
+            margin-bottom: 60px;
+            border-top: 5px solid var(--accent-gold);
+        }
+
+        .founder-grid {
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .founder-img-box {
+            width: 100%;
+            height: 380px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            background: var(--bg-light);
+            border: 3px solid #e2e8f0;
+        }
+
+        .founder-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .founder-details h3 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .founder-details .designation {
+            font-size: 1.1rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .founder-details p {
+            color: #475569;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            font-size: 1rem;
+        }
+
+        .founder-quote {
+            background: var(--bg-light);
+            border-left: 4px solid var(--primary);
+            padding: 15px 20px;
+            border-radius: 0 12px 12px 0;
+            font-style: italic;
+            color: var(--primary);
+            font-weight: 500;
+        }
+
         /* --- SPECIALITY CARDS --- */
         .specs-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
-            margin-bottom: 80px;
+            margin-bottom: 40px;
         }
 
         .spec-card {
@@ -487,15 +558,6 @@
             font-size: 0.95rem;
         }
 
-        .spec-card .highlight-num {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--accent);
-            display: block;
-            line-height: 1;
-            margin: 5px 0;
-        }
-
         /* --- TOUR PACKAGES --- */
         .tour-tabs {
             display: flex;
@@ -526,7 +588,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
             gap: 30px;
-            margin-bottom: 80px;
+            margin-bottom: 40px;
         }
 
         .tour-item {
@@ -544,6 +606,7 @@
 
         .tour-img {
             height: 220px;
+            background-color: #cbd5e1;
             background-size: cover;
             background-position: center;
             position: relative;
@@ -574,16 +637,6 @@
             border-radius: 30px;
             font-size: 0.8rem;
             font-weight: 600;
-        }
-
-        .tour-img .tour-overlay-title {
-            position: absolute;
-            bottom: 15px;
-            left: 15px;
-            color: white;
-            font-size: 1.2rem;
-            font-weight: 700;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
         }
 
         .tour-info {
@@ -623,12 +676,111 @@
             font-size: 0.7rem;
         }
 
+        /* --- FLYERS & IMAGES GALLERY SECTION --- */
+        .flyers-section {
+            background: white;
+            padding: 60px 40px;
+            border-radius: 24px;
+            box-shadow: var(--card-shadow);
+            margin-bottom: 60px;
+        }
+
+        .flyers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .flyer-card {
+            background: var(--bg-light);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+        }
+
+        .flyer-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+            border-color: var(--accent-gold);
+        }
+
+        .flyer-img-container {
+            width: 100%;
+            height: 380px;
+            background: #e2e8f0;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .flyer-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .flyer-card:hover .flyer-img-container img {
+            transform: scale(1.03);
+        }
+
+        .flyer-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(26, 42, 108, 0.85);
+            backdrop-filter: blur(5px);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .flyer-content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .flyer-content h4 {
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .flyer-content p {
+            font-size: 0.85rem;
+            color: #64748b;
+            margin-bottom: 15px;
+        }
+
+        .flyer-btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .flyer-btn:hover {
+            background: var(--accent);
+        }
+
         /* --- SERVICES / FACILITIES SECTION --- */
         .services-section {
             background: white;
-            padding: 60px 0;
+            padding: 60px 20px;
             border-radius: 20px;
-            margin-bottom: 80px;
+            margin-bottom: 60px;
             box-shadow: var(--card-shadow);
         }
 
@@ -636,7 +788,6 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             gap: 20px;
-            padding: 0 20px;
         }
 
         .service-item {
@@ -669,58 +820,18 @@
             font-weight: 600;
         }
 
-        /* --- SPECIAL TOURS TYPES --- */
-        .tour-types {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 12px;
-            margin: 20px 0 30px;
-        }
-
-        .tour-type-badge {
-            background: white;
-            padding: 10px 22px;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--primary);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
-            border: 1px solid #e8edf4;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .tour-type-badge:hover {
-            background: var(--primary);
-            color: white;
-            transform: translateY(-3px);
-            border-color: var(--primary);
-        }
-
-        .tour-type-badge i {
-            color: var(--accent);
-        }
-
-        .tour-type-badge:hover i {
-            color: white;
-        }
-
         /* --- TESTIMONIALS --- */
         .testimonials {
             background: linear-gradient(135deg, #edf2f9, #e2e8f0);
-            padding: 60px 0;
+            padding: 60px 20px;
             border-radius: 20px;
-            margin-bottom: 80px;
+            margin-bottom: 60px;
         }
 
         .testimonial-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
-            padding: 0 20px;
         }
 
         .testimonial-card {
@@ -770,7 +881,7 @@
         /* --- FAQ --- */
         .faq-container {
             max-width: 800px;
-            margin: 0 auto 80px auto;
+            margin: 0 auto 60px auto;
         }
 
         .faq-item {
@@ -949,7 +1060,7 @@
         }
 
         footer .footer-brand img {
-            height: 40px;
+            height: 36px;
             width: auto;
             object-fit: contain;
         }
@@ -975,7 +1086,8 @@
         /* --- RESPONSIVE --- */
         @media (max-width: 992px) {
             .hero h1 { font-size: 2.8rem; }
-            .hero h2 { font-size: 1.4rem; }
+            .founder-grid { grid-template-columns: 1fr; }
+            .founder-img-box { max-width: 320px; margin: 0 auto; }
         }
 
         @media (max-width: 768px) {
@@ -1005,14 +1117,15 @@
 
             .nav-links a { font-size: 1rem; }
 
-            .hero h1 { font-size: 2.2rem; }
+            .hero h1 { font-size: 2.1rem; }
             .hero h2 { font-size: 1.2rem; }
-            .hero .tagline { font-size: 1rem; }
+            .hero .tagline { font-size: 0.95rem; }
 
             .hero-logo-badge {
                 flex-direction: column;
                 padding: 20px;
                 gap: 12px;
+                text-align: center;
             }
 
             .hero-logo-badge .tagline-text {
@@ -1021,6 +1134,7 @@
                 border-top: 1px solid rgba(255,255,255,0.15);
                 padding-top: 12px;
                 font-size: 0.8rem;
+                text-align: center;
             }
 
             .search-container {
@@ -1037,13 +1151,11 @@
                 justify-content: center;
             }
 
-            .stats-float .stat .number { font-size: 1.5rem; }
-
             .section-header h2 { font-size: 1.8rem; }
 
             .specs-grid { grid-template-columns: 1fr; }
             .tours-grid { grid-template-columns: 1fr; }
-            .testimonial-grid { grid-template-columns: 1fr; }
+            .founder-section { padding: 30px 20px; }
 
             .contact-cta { padding: 30px 20px; }
             .contact-cta h3 { font-size: 1.6rem; }
@@ -1051,18 +1163,6 @@
             .contact-card-btn { width: 100%; justify-content: center; }
 
             .services-grid { grid-template-columns: repeat(2, 1fr); }
-            .tour-types { gap: 8px; }
-            .tour-type-badge { font-size: 0.75rem; padding: 8px 16px; }
-        }
-
-        @media (max-width: 480px) {
-            .hero h1 { font-size: 1.8rem; }
-            .hero h2 { font-size: 1rem; }
-            .logo-text .brand { font-size: 1rem; }
-            .logo img { width: 40px; height: 40px; }
-            .services-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
-            .service-item { padding: 15px 8px; }
-            .service-item i { font-size: 1.5rem; }
         }
     </style>
 </head>
@@ -1071,7 +1171,7 @@
     <!-- STICKY HEADER NAVIGATION -->
     <nav>
         <div class="logo">
-            <img src="https://drive.google.com/file/d/1EdKg26YcLSW_HpIfyS8Bpq6FDHjTzHA4/view?usp=sharing" alt="Swanand Dev Darshan Logo">
+            <img src="logo.png" alt="Swanand Dev Darshan Logo">
             <div class="logo-text">
                 <span class="brand">🙏 <span>स्वानंद</span> यात्रा</span>
                 <span class="sub">RUTUJA INTERNATIONAL HOLIDAYS</span>
@@ -1079,10 +1179,11 @@
         </div>
         <ul class="nav-links" id="navLinks">
             <li><a href="#home">मुख्यपृष्ठ</a></li>
+            <li><a href="#founder">संस्थापक</a></li>
             <li><a href="#speciality">वैशिष्ट्ये</a></li>
             <li><a href="#tours">यात्रा पॅकेजेस</a></li>
+            <li><a href="#flyers">फ्लयर्स</a></li>
             <li><a href="#services">सुविधा</a></li>
-            <li><a href="#faq">प्रश्नावली</a></li>
             <li><a href="tel:9284551534" class="book-btn"><i class="fas fa-phone"></i> 9284551534</a></li>
         </ul>
         <div class="menu-toggle" onclick="toggleMenu()">
@@ -1096,14 +1197,15 @@
     <section class="hero" id="home">
         <div class="hero-content">
             <div class="hero-badge">
-                <i class="fas fa-award"></i> विश्वासार्हतेचे नाव - 15+ वर्षे
+                <i class="fas fa-award"></i> विश्वासार्हतेचे नाव - १५+ वर्षे अनुभव
             </div>
 
             <!-- Logo Badge in Hero -->
             <div class="hero-logo-badge">
-                <img src="https://drive.google.com/file/d/1EdKg26YcLSW_HpIfyS8Bpq6FDHjTzHA4/view?usp=sharing" alt="Swanand Dev Darshan Logo">
+                <img src="logo.png" alt="Swanand Dev Darshan Logo">
                 <div class="tagline-text">
-                    <strong>श्री स्वानंद</strong> देव दर्शन यात्रा प्रा. लि.
+                    <strong>श्री स्वानंद</strong> देव दर्शन यात्रा प्रा. लि.<br>
+                    <span style="font-size: 0.75rem; opacity: 0.8;">Rutuja International Holidays</span>
                 </div>
             </div>
 
@@ -1111,11 +1213,11 @@
             <h2>🙏 <strong>स्वानंद देवदर्शन</strong> यात्रा कंपनी, हडपसर पुणे</h2>
             <div class="tagline">
                 <i class="fas fa-star"></i> विश्वासार्हतेचे नाव म्हणजे स्वानंद! <i class="fas fa-star"></i><br>
-                आता कुठेही फिरा, फक्त स्वानंद सोबत
+                आता कुठेही फिरा, फक्त स्वानंद सोबत - घरगुती वातावरणात आनंदी प्रवास
             </div>
 
             <div class="search-container">
-                <input type="text" id="tourSearch" placeholder="🔍 तुमची आवडती ट्रीप किंवा तीर्थक्षेत्र शोधा... (उदा. चारधाम, काश्मीर)" onkeyup="searchTours()">
+                <input type="text" id="tourSearch" placeholder="🔍 तुमची आवडती ट्रीप किंवा तीर्थक्षेत्र शोधा... (उदा. चारधाम, काश्मीर, ज्योतिर्लिंग)" onkeyup="searchTours()">
                 <button type="button" onclick="searchTours()"><i class="fas fa-search"></i> शोधा</button>
             </div>
 
@@ -1130,7 +1232,7 @@
                 </div>
                 <div class="stat">
                     <div class="number">500+</div>
-                    <div class="label">यात्रा पॅकेजेस</div>
+                    <div class="label">यशस्वी यात्रा</div>
                 </div>
             </div>
         </div>
@@ -1138,27 +1240,244 @@
 
     <div class="container">
 
+        <!-- FOUNDER SECTION (`founder.png`) -->
+        <section id="founder" class="founder-section">
+            <div class="section-header" style="margin-bottom: 30px;">
+                <h2>संस्थापक मनोगत</h2>
+                <div class="subtitle">आमच्या प्रवासाची प्रेरणा आणि मार्गदर्शन</div>
+            </div>
+            <div class="founder-grid">
+                <div class="founder-img-box">
+                    <img src="founder.png" alt="Founder - Rutuja International Holidays">
+                </div>
+                <div class="founder-details">
+                    <h3>श्री. संचालक / संस्थापक</h3>
+                    <span class="designation">स्वानंद देव दर्शन यात्रा कंपनी & रुतुजा इंटरनॅशनल हॉलिडेज</span>
+                    <p>
+                        "प्रवासाची आवड आणि प्रत्येक यात्रेकरूला आपल्या कुटुंबाप्रमाणे सांभाळण्याची भावना या विचारातून आम्ही स्वानंद यात्रा कंपनीची स्थापना केली. गेल्या १५ वर्षांहून अधिक काळ आम्ही हजारो प्रवाशांचे तीर्थक्षेत्र आणि पर्यटनाचे स्वप्न पूर्ण केले आहे. उत्तम जेवण, सुरक्षित प्रवास आणि राहण्याची सर्वोत्तम सोय हा आमचा मुख्य हेतू असतो."
+                    </p>
+                    <div class="founder-quote">
+                        "तुमच्या विश्वासाला आणि समाधानाला जपणे हेच आमचे सर्वोच्च कर्तव्य आहे."
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- SPECIALITY SECTION -->
         <section id="speciality">
             <div class="section-header">
-                <h2>🍲 आमची खास वैशिष्ट्ये</h2>
-                <p class="subtitle">आमच्या यात्रेत मिळणाऱ्या विशेष सुविधा</p>
+                <h2>आमची वैशिष्ट्ये</h2>
+                <div class="subtitle">आम्ही देतो सर्वोत्तम सेवा आणि अविस्मरणीय अनुभव</div>
             </div>
             <div class="specs-grid">
                 <div class="spec-card">
                     <div class="spec-icon"><i class="fas fa-utensils"></i></div>
-                    <h3>महाराष्ट्रीयन जेवण</h3>
-                    <p>प्रवासातही घरची चव! आम्ही संपूर्ण प्रवासात शुद्ध आणि रुचकर पारंपारिक महाराष्ट्रीयन जेवणाची उत्तम सोय करतो.</p>
+                    <h3>शुद्ध घरगुती जेवण</h3>
+                    <p>यात्रेदरम्यान प्रवाशांसाठी अस्सल घरगुती चवीचे आणि हायजेनिक जेवणाची विशेष सोय.</p>
                 </div>
                 <div class="spec-card">
-                    <div class="spec-icon"><i class="fas fa-truck-kitchen"></i></div>
-                    <h3>स्वतःचे भव्य किचन सेटअप</h3>
-                    <p><span class="highlight-num">500</span> लोकांचे एकाच वेळी अद्ययावत व दर्जेदार जेवण बनवण्याची स्वतःची सुसज्ज फिरती किचन व्यवस्था.</p>
+                    <div class="spec-icon"><i class="fas fa-hotel"></i></div>
+                    <h3>उत्कृष्ट हॉटेल्स</h3>
+                    <p>राहण्यासाठी एसी/नॉन-एसी फॅमिली फ्रेंडली स्वच्छ हॉटेल्स आणि विश्रामगृहे.</p>
                 </div>
                 <div class="spec-card">
-                    <div class="spec-icon"><i class="fas fa-user-chef"></i></div>
-                    <h3>अनुभवी आचारी स्टाफ</h3>
-                    <p>प्रत्येक यात्रेत दर्जेदार चव आणि उत्कृष्ट स्वच्छतेची काळजी घेण्यासाठी आमचे खास महाराष्ट्रीयन शेफ सोबत असतात.</p>
+                    <div class="spec-icon"><i class="fas fa-bus-alt"></i></div>
+                    <h3>आरामदायी प्रवास</h3>
+                    <p>प्रवासासाठी आधुनिक लक्झरी बसेस, एसी ट्रेव्हलर आणि अनुभवी वाहनचालक.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- TOUR PACKAGES SECTION (Expanded with more trips) -->
+        <section id="tours">
+            <div class="section-header">
+                <h2>आमची लोकप्रिय यात्रा पॅकेजेस</h2>
+                <div class="subtitle">देशांतर्गत आणि आंतरराष्ट्रीय पर्यटन सहली</div>
+            </div>
+
+            <div class="tour-tabs">
+                <button class="tab-btn active">सर्व पॅकेजेस</button>
+                <button class="tab-btn">तीर्थक्षेत्र यात्रा</button>
+                <button class="tab-btn">हॉलिडे टूर</button>
+            </div>
+
+            <div class="tours-grid">
+                <!-- Package 1 -->
+                <div class="tour-item">
+                    <div class="tour-img" style="background-image: url('https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&w=400&q=80');">
+                        <span class="tour-tag">तीर्थक्षेत्र</span>
+                        <span class="tour-price-tag">संपर्क करा</span>
+                    </div>
+                    <div class="tour-info">
+                        <h3>चारधाम यात्रा (उत्तराखंड)</h3>
+                        <ul class="tour-features-list">
+                            <li><span><i class="fas fa-map-marker-alt feature-icon"></i> यमुनोत्री, गंगोत्री, केदारनाथ, बद्रीनाथ</span> <i class="fas fa-chevron-right feature-arrow"></i></li>
+                            <li><span><i class="fas fa-calendar-alt feature-icon"></i> कालावधी: १२ दिवस</span> <i class="fas fa-chevron-right feature-arrow"></i></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Package 2 -->
+                <div class="tour-item">
+                    <div class="tour-img" style="background-image: url('https://images.unsplash.com/photo-1595815771619-ade9d652a65d?auto=format&fit=crop&w=400&q=80');">
+                        <span class="tour-tag">तीर्थक्षेत्र</span>
+                        <span class="tour-price-tag">संपर्क करा</span>
+                    </div>
+                    <div class="tour-info">
+                        <h3>अयोध्या - काशी - प्रयागराज यात्रा</h3>
+                        <ul class="tour-features-list">
+                            <li><span><i class="fas fa-map-marker-alt feature-icon"></i> राम मंदिर अयोध्या, काशी विश्वनाथ, प्रयागराज</span> <i class="fas fa-chevron-right feature-arrow"></i></li>
+                            <li><span><i class="fas fa-calendar-alt feature-icon"></i> कालावधी: ८ दिवस</span> <i class="fas fa-chevron-right feature-arrow"></i></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Package 3 -->
+                <div class="tour-item">
+                    <div class="tour-img" style="background-image: url('https://images.unsplash.com/photo-1581793745862-99fde7bb73d2?auto=format&fit=crop&w=400&q=80');">
+                        <span class="tour-tag">तीर्थक्षेत्र</span>
+                        <span class="tour-price-tag">संपर्क करा</span>
+                    </div>
+                    <div class="tour-info">
+                        <h3>१२ ज्योतिर्लिंग दर्शन यात्रा</h3>
+                        <ul class="tour-features-list">
+                            <li><span><i class="fas fa-map-marker-alt feature-icon"></i> ओम्कारेश्वर, महाकालेश्वर, त्र्यंबकेश्वर व इतर</span> <i class="fas fa-chevron-right feature-arrow"></i></li>
+                            <li><span><i class="fas fa-calendar-alt feature-icon"></i> कालावधी: १५ दिवस</span> <i class="fas fa-chevron-right feature-arrow"></i></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Package 4 -->
+                <div class="tour-item">
+                    <div class="tour-img" style="background-image: url('https://images.unsplash.com/photo-1598091383028-de1e056e3630?auto=format&fit=crop&w=400&q=80');">
+                        <span class="tour-tag">हॉलिडे</span>
+                        <span class="tour-price-tag">संपर्क करा</span>
+                    </div>
+                    <div class="tour-info">
+                        <h3>काश्मीर स्वर्ग सफारी</h3>
+                        <ul class="tour-features-list">
+                            <li><span><i class="fas fa-map-marker-alt feature-icon"></i> श्रीनगर, पहलगाम, गुलमर्ग, हाउसबोत</span> <i class="fas fa-chevron-right feature-arrow"></i></li>
+                            <li><span><i class="fas fa-calendar-alt feature-icon"></i> कालावधी: ७ दिवस</span> <i class="fas fa-chevron-right feature-arrow"></i></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Package 5 -->
+                <div class="tour-item">
+                    <div class="tour-img" style="background-image: url('https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=400&q=80');">
+                        <span class="tour-tag">तीर्थक्षेत्र</span>
+                        <span class="tour-price-tag">संपर्क करा</span>
+                    </div>
+                    <div class="tour-info">
+                        <h3>दक्षिण भारत दर्शन</h3>
+                        <ul class="tour-features-list">
+                            <li><span><i class="fas fa-map-marker-alt feature-icon"></i> रामेश्वरम, मदुराई, कन्याकुमारी, तिरुपती</span> <i class="fas fa-chevron-right feature-arrow"></i></li>
+                            <li><span><i class="fas fa-calendar-alt feature-icon"></i> कालावधी: १० दिवस</span> <i class="fas fa-chevron-right feature-arrow"></i></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Package 6 -->
+                <div class="tour-item">
+                    <div class="tour-img" style="background-image: url('https://images.unsplash.com/photo-1570168007204-dfb528c6958f?auto=format&fit=crop&w=400&q=80');">
+                        <span class="tour-tag">तीर्थक्षेत्र</span>
+                        <span class="tour-price-tag">संपर्क करा</span>
+                    </div>
+                    <div class="tour-info">
+                        <h3>अष्टाविनायक दर्शन यात्रा</h3>
+                        <ul class="tour-features-list">
+                            <li><span><i class="fas fa-map-marker-alt feature-icon"></i> मोरगाव ते थेूर (सर्व ८ गणपती बाप्पा)</span> <i class="fas fa-chevron-right feature-arrow"></i></li>
+                            <li><span><i class="fas fa-calendar-alt feature-icon"></i> कालावधी: २ दिवस</span> <i class="fas fa-chevron-right feature-arrow"></i></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FLYERS & IMAGES GALLERY SECTION -->
+        <section id="flyers" class="flyers-section">
+            <div class="section-header" style="margin-bottom: 20px;">
+                <h2>यात्रा फ्लयर्स आणि फोटो गॅलरी</h2>
+                <div class="subtitle">आमचे आकर्षक सहल आणि यात्रांचे अधिकृत फ्लयर्स</div>
+            </div>
+
+            <div class="flyers-grid">
+                <!-- Flyer / Image 1 -->
+                <div class="flyer-card">
+                    <div class="flyer-img-container">
+                        <span class="flyer-badge">फ्लयर 01</span>
+                        <img src="image1.png" alt="यात्रा फ्लयर १">
+                    </div>
+                    <div class="flyer-content">
+                        <h4>विशेष तीर्थक्षेत्र यात्रा</h4>
+                        <p>नवीन ट्रिप आणि तारखांची माहिती</p>
+                        <a href="tel:9284551534" class="flyer-btn">बुकिंगसाठी कॉल करा</a>
+                    </div>
+                </div>
+
+                <!-- Flyer / Image 2 -->
+                <div class="flyer-card">
+                    <div class="flyer-img-container">
+                        <span class="flyer-badge">फ्लयर 02</span>
+                        <img src="image2.png" alt="यात्रा फ्लयर २">
+                    </div>
+                    <div class="flyer-content">
+                        <h4>चारधाम / काश्मीर पॅकेज</h4>
+                        <p>आकर्षक सवलत आणि सुविधेसह</p>
+                        <a href="tel:9284551534" class="flyer-btn">बुकिंगसाठी कॉल करा</a>
+                    </div>
+                </div>
+
+                <!-- Flyer / Image 3 -->
+                <div class="flyer-card">
+                    <div class="flyer-img-container">
+                        <span class="flyer-badge">फ्लयर 03</span>
+                        <img src="image3.png" alt="यात्रा फ्लयर ३">
+                    </div>
+                    <div class="flyer-content">
+                        <h4>अष्टाविनायक व ज्योतिर्लिंग यात्रा</h4>
+                        <p>पुण्याहून दर आठवड्याला सुटणाऱ्या गाड्या</p>
+                        <a href="tel:9284551534" class="flyer-btn">बुकिंगसाठी कॉल करा</a>
+                    </div>
+                </div>
+
+                <!-- Flyer / Image 4 -->
+                <div class="flyer-card">
+                    <div class="flyer-img-container">
+                        <span class="flyer-badge">फ्लयर 04</span>
+                        <img src="image4.png" alt="यात्रा फ्लयर ४">
+                    </div>
+                    <div class="flyer-content">
+                        <h4>दक्षिण भारत दर्शन</h4>
+                        <p>रामेश्वरम, कन्याकुमारी आणि तिरुपती</p>
+                        <a href="tel:9284551534" class="flyer-btn">बुकिंगसाठी कॉल करा</a>
+                    </div>
+                </div>
+
+                <!-- Flyer / Image 5 -->
+                <div class="flyer-card">
+                    <div class="flyer-img-container">
+                        <span class="flyer-badge">फ्लयर 05</span>
+                        <img src="image5.png" alt="यात्रा फ्लयर ५">
+                    </div>
+                    <div class="flyer-content">
+                        <h4>परदेशी टूर पॅकेजेस</h4>
+                        <p>दुबई, सिंगापूर आणि थायलंड सहली</p>
+                        <a href="tel:9284551534" class="flyer-btn">बुकिंगसाठी कॉल करा</a>
+                    </div>
+                </div>
+
+                <!-- Flyer / Image 6 -->
+                <div class="flyer-card">
+                    <div class="flyer-img-container">
+                        <span class="flyer-badge">फ्लयर 06</span>
+                        <img src="image6.png" alt="यात्रा फ्लयर ६">
+                    </div>
+                    <div class="flyer-content">
+                        <h4>हॉलिडे स्पेशल ऑफर्स</h4>
+                        <p>कमी खर्कात सर्वोत्तम आनंद</p>
+                        <a href="tel:9284551534" class="flyer-btn">बुकिंगसाठी कॉल करा</a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -1166,284 +1485,73 @@
         <!-- SERVICES / FACILITIES SECTION -->
         <section id="services" class="services-section">
             <div class="section-header">
-                <h2>🎫 आमच्या सुविधा</h2>
-                <p class="subtitle">एकाच ठिकाणी सर्व प्रकारच्या प्रवास सेवा</p>
+                <h2>आमच्या सुविधा</h2>
+                <div class="subtitle">प्रवाशांसाठी उपलब्ध विशेष सुविधा</div>
             </div>
             <div class="services-grid">
-                <div class="service-item"><i class="fas fa-plane"></i><span>विमान बुकिंग</span></div>
-                <div class="service-item"><i class="fas fa-train"></i><span>रेल्वे बुकिंग</span></div>
-                <div class="service-item"><i class="fas fa-ship"></i><span>क्रूझ बुकिंग</span></div>
-                <div class="service-item"><i class="fas fa-bus"></i><span>बस बुकिंग</span></div>
-                <div class="service-item"><i class="fas fa-hotel"></i><span>होटेल बुकिंग</span></div>
-                <div class="service-item"><i class="fas fa-car"></i><span>कार बुकिंग</span></div>
-                <div class="service-item"><i class="fas fa-shield-alt"></i><span>प्रवास विमा</span></div>
-                <div class="service-item"><i class="fas fa-hand-holding-usd"></i><span>प्रवास कर्ज</span></div>
-            </div>
-
-            <div style="margin-top: 30px; text-align: center;">
-                <h4 style="color: var(--primary); margin-bottom: 15px;">🌟 विशेष यात्रा प्रकार</h4>
-                <div class="tour-types">
-                    <span class="tour-type-badge"><i class="fas fa-crown"></i> VIP टूर</span>
-                    <span class="tour-type-badge"><i class="fas fa-users"></i> फॅमिली टूर</span>
-                    <span class="tour-type-badge"><i class="fas fa-user-friends"></i> फ्रेंड्स टूर</span>
-                    <span class="tour-type-badge"><i class="fas fa-user-plus"></i> ग्रुप टूर</span>
-                    <span class="tour-type-badge"><i class="fas fa-heart"></i> हनीमून टूर</span>
-                    <span class="tour-type-badge"><i class="fas fa-female"></i> ओन्ली लेडीज टूर</span>
-                    <span class="tour-type-badge"><i class="fas fa-walking"></i> सिनियर सिटिझन टूर</span>
-                    <span class="tour-type-badge"><i class="fas fa-users-cog"></i> प्रायव्हेट टूर</span>
+                <div class="service-item">
+                    <i class="fas fa-bus"></i>
+                    <span>लक्झरी बस</span>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-utensils"></i>
+                    <span>घरगुती जेवण</span>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-hotel"></i>
+                    <span>उत्कृष्ट हॉटेल्स</span>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-user-shield"></i>
+                    <span>सुरक्षित प्रवास</span>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-hands-helping"></i>
+                    <span>अनुभवी मार्गदर्शक</span>
                 </div>
             </div>
         </section>
 
-        <!-- TOUR SECTION -->
-        <section id="tours">
+        <!-- FAQ SECTION -->
+        <section id="faq">
             <div class="section-header">
-                <h2>✈️ आमच्या प्रमुख लोकप्रिय यात्रा</h2>
-                <p class="subtitle">तुमच्या आवडीची यात्रा निवडा</p>
+                <h2>नेहमी विचारले जाणारे प्रश्न (FAQ)</h2>
             </div>
-
-            <div class="tour-tabs">
-                <button class="tab-btn active" onclick="filterTours('all', this)"><i class="fas fa-globe"></i> सर्व यात्रा</button>
-                <button class="tab-btn" onclick="filterTours('spiritual', this)"><i class="fas fa-om"></i> देवदर्शन</button>
-                <button class="tab-btn" onclick="filterTours('domestic', this)"><i class="fas fa-flag"></i> भारत दर्शन</button>
-                <button class="tab-btn" onclick="filterTours('international', this)"><i class="fas fa-globe-asia"></i> इंटरनॅशनल</button>
-            </div>
-
-            <div class="tours-grid" id="toursGrid">
-                <!-- Spiritual Tour -->
-                <div class="tour-item spiritual-card" data-name="पवित्र पावन यात्रा चारधाम केदारनाथ बद्रीनाथ ज्योतिर्लिंग">
-                    <div class="tour-img" style="background-image: url('https://images.unsplash.com/photo-1585409677983-0f6c41ca9c3b?auto=format&fit=crop&w=600&q=80');">
-                        <span class="tour-tag"><i class="fas fa-om"></i> तीर्थक्षेत्र</span>
-                        <span class="tour-price-tag">₹ 11,500/-</span>
-                        <div class="tour-overlay-title">🔱 देवदर्शन विशेष</div>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>सहलीचे बुकिंग कसे करावे?</span>
+                        <i class="fas fa-plus faq-toggle"></i>
                     </div>
-                    <div class="tour-info">
-                        <h3>पवित्र पावन यात्रा</h3>
-                        <ul class="tour-features-list">
-                            <li><span><i class="fas fa-check-circle feature-icon"></i> चारधाम यात्रा (केदारनाथ, बद्रीनाथ)</span> <span class="feature-arrow">➔</span></li>
-                            <li><span><i class="fas fa-check-circle feature-icon"></i> १२ ज्योतिर्लिंग व साडेतीन पीठे</span> <span class="feature-arrow">➔</span></li>
-                            <li><span><i class="fas fa-check-circle feature-icon"></i> अयोध्या, काशी, प्रयाग व वृंदावन</span> <span class="feature-arrow">➔</span></li>
-                            <li><span><i class="fas fa-check-circle feature-icon"></i> अष्टविनायक यात्रा व अमरनाथ</span> <span class="feature-arrow">➔</span></li>
-                            <li><span><i class="fas fa-check-circle feature-icon"></i> गंगासागर - जगन्नाथ पुरी</span> <span class="feature-arrow">➔</span></li>
-                            <li><span><i class="fas fa-check-circle feature-icon"></i> मानस सरोवर व बालाजी दर्शन</span> <span class="feature-arrow">➔</span></li>
-                        </ul>
+                    <div class="faq-answer">
+                        <p>तुम्ही आमच्याशी थेट फोनवर (9284551534) संपर्क साधून किंवा आमच्या हडपसर, पुणे येथील कार्यालयात येऊन बुकिंग करू शकता.</p>
                     </div>
                 </div>
-
-                <!-- Domestic Tour -->
-                <div class="tour-item domestic-card" data-name="सुंदर भारत सफर काश्मीर आसाम मेघालय अरुणाचल केरळ अंदमान राजस्थान गुजरात">
-                    <div class="tour-img" style="background-image: url('https://images.unsplash.com/photo-1589182373726-e4f658ab50f0?auto=format&fit=crop&w=600&q=80');">
-                        <span class="tour-tag"><i class="fas fa-flag"></i> भारत दर्शन</span>
-                        <span class="tour-price-tag">₹ 14,500/-</span>
-                        <div class="tour-overlay-title">🏔️ डोमेस्टिक सुट्ट्या</div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>जेवणाची व्यवस्था कशी असते?</span>
+                        <i class="fas fa-plus faq-toggle"></i>
                     </div>
-                    <div class="tour-info">
-                        <h3>सुंदर भारत सफर</h3>
-                        <ul class="tour-features-list">
-                            <li><span><i class="fas fa-check-circle feature-icon"></i> काश्मीर सुंदर खोरे</span> <span class="feature-arrow">➔</span></li>
-                            <li><span><i class="fas fa-check-circle feature-icon"></i> आसाम - मेघालय - अरुणाचल</span> <span class="feature-arrow">➔</span></li>
-                            <li><span><i class="fas fa-check-circle feature-icon"></i> थ्री सिस्टर | फोर सिस्टर स्पेशल</span> <span class="feature-arrow">➔</span></li>
-                            <li><span><i class="fas fa-check-circle feature-icon"></i> केरळ व साऊथ इंडिया पॅकेज</span> <span class="feature-arrow">➔</span></li>
-                            <li><span><i class="fas fa-check-circle feature-icon"></i> अंदमान-निकोबार व लक्षद्वीप</span> <span class="feature-arrow">➔</span></li>
-                            <li><span><i class="fas fa-check-circle feature-icon"></i> राजस्थान व गुजरात दर्शन</span> <span class="feature-arrow">➔</span></li>
-                        </ul>
+                    <div class="faq-answer">
+                        <p>सर्व प्रवाशांसाठी स्वतःच्या देखरेखीखाली स्वच्छ आणि अस्सल शाकाहारी घरगुती जेवणाची उत्तम सोय केली जाते.</p>
                     </div>
-                </div>
-
-                <!-- International Tour -->
-                <div class="tour-item international-card" data-name="ग्लोबल हॉलिडेज स्वीटझर्लंड दुबई श्रीलंका नेपाळ भूतान मालदीव">
-                    <div class="tour-img" style="background-image: url('https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=600&q=80');">
-                        <span class="tour-tag"><i class="fas fa-globe-asia"></i> परदेश वारी</span>
-                        <span class="tour-price-tag">₹ 37,500/-</span>
-                        <div class="tour-overlay-title">🌍 आंतरराष्ट्रीय ट्रीप</div>
-                    </div>
-                    <div class="tour-info">
-                        <h3>ग्लोबल हॉलिडेज</h3>
-                        <ul class="tour-features-list">
-                            <li><span><i class="fas fa-check-circle feature-icon"></i> स्वीटझर्लंड (युरोप स्पेशल)</span> <span class="feature-arrow">➔</span></li>
-                            <li><span><i class="fas fa-check-circle feature-icon"></i> दुबई आखाती सफर</span> <span class="feature-arrow">➔</span></li>
-                            <li><span><i class="fas fa-check-circle feature-icon"></i> श्रीलंका निसर्ग दर्शन</span> <span class="feature-arrow">➔</span></li>
-                            <li><span><i class="fas fa-check-circle feature-icon"></i> नेपाळ व भूतान शेजारी देश</span> <span class="feature-arrow">➔</span></li>
-                            <li><span><i class="fas fa-check-circle feature-icon"></i> मालदीव बीच हॉलिडे</span> <span class="feature-arrow">➔</span></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- TESTIMONIALS -->
-        <section class="testimonials">
-            <div class="section-header">
-                <h2>⭐ समाधानी प्रवाशांचे अनुभव</h2>
-                <p class="subtitle">आमच्या प्रवाशांनी शेअर केलेले अनुभव</p>
-            </div>
-            <div class="testimonial-grid">
-                <div class="testimonial-card">
-                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <p>"स्वानंद सोबतची आमची चारधाम यात्रा खूपच अविस्मरणीय झाली. प्रवासात प्रत्येक ठिकाणी वेळेवर गरमागरम महाराष्ट्रीयन जेवण मिळणे ही आमच्यासाठी सर्वात मोठी सोय होती!"</p>
-                    <div class="client-info">
-                        <div>
-                            <div class="name">रमेश सोनावणे</div>
-                            <div class="city">📍 हडपसर, पुणे</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <p>"आमच्या फॅमिली टूरसाठी स्वानंद हा सर्वोत्तम पर्याय होता. छोट्या गोष्टींचीही काळजी घेतली गेली. विशेषतः वृद्धांसाठी खूप सोयीस्कर व्यवस्था होती."</p>
-                    <div class="client-info">
-                        <div>
-                            <div class="name">स्नेहल जोशी</div>
-                            <div class="city">📍 कोथरूड, पुणे</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <p>"काश्मीर यात्रेत स्वानंदची सेवा खूपच उत्तम होती. हॉटेल, जेवण, वाहतूक सगळं उत्तम. आमच्या ग्रुपला खूप आनंद झाला. नक्कीच पुन्हा येऊ!"</p>
-                    <div class="client-info">
-                        <div>
-                            <div class="name">विक्रम पाटील</div>
-                            <div class="city">📍 स्वारगेट, पुणे</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- FEATURED TOUR - VRINDAVAN DHAM -->
-        <section style="margin-bottom: 80px;">
-            <div class="section-header">
-                <h2>🙏 विशेष यात्रा - वृंदावन धाम</h2>
-                <p class="subtitle">दि. 15 नोव्हेंबर 2026 | 7 दिवस</p>
-            </div>
-            <div style="background: linear-gradient(135deg, #fff8f0, #fff0e6); border-radius: 24px; padding: 40px; box-shadow: var(--card-shadow);">
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: center;">
-                    <div>
-                        <h3 style="color: var(--primary); font-size: 1.6rem; margin-bottom: 10px;">✨ श्री स्वानंद देव दर्शन यात्रा</h3>
-                        <p style="font-style: italic; color: #b45309; font-size: 1.2rem; margin-bottom: 20px;">
-                            <i class="fas fa-music"></i> राधे चल माझ्या गावाला जाऊ | सार गोकुळ फिरून पाहू
-                        </p>
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 20px;">
-                            <span style="background: white; padding: 6px 14px; border-radius: 8px; font-size: 0.85rem;"><i class="fas fa-check-circle" style="color: var(--accent);"></i> वृंदावन धाम</span>
-                            <span style="background: white; padding: 6px 14px; border-radius: 8px; font-size: 0.85rem;"><i class="fas fa-check-circle" style="color: var(--accent);"></i> गोकुळ</span>
-                            <span style="background: white; padding: 6px 14px; border-radius: 8px; font-size: 0.85rem;"><i class="fas fa-check-circle" style="color: var(--accent);"></i> मथुरा</span>
-                            <span style="background: white; padding: 6px 14px; border-radius: 8px; font-size: 0.85rem;"><i class="fas fa-check-circle" style="color: var(--accent);"></i> बरसाना</span>
-                            <span style="background: white; padding: 6px 14px; border-radius: 8px; font-size: 0.85rem;"><i class="fas fa-check-circle" style="color: var(--accent);"></i> नंदगाव</span>
-                            <span style="background: white; padding: 6px 14px; border-radius: 8px; font-size: 0.85rem;"><i class="fas fa-check-circle" style="color: var(--accent);"></i> प्रेम मंदिर</span>
-                            <span style="background: white; padding: 6px 14px; border-radius: 8px; font-size: 0.85rem;"><i class="fas fa-check-circle" style="color: var(--accent);"></i> बाके बिहारी मंदिर</span>
-                            <span style="background: white; padding: 6px 14px; border-radius: 8px; font-size: 0.85rem;"><i class="fas fa-check-circle" style="color: var(--accent);"></i> ताजमहल</span>
-                            <span style="background: white; padding: 6px 14px; border-radius: 8px; font-size: 0.85rem;"><i class="fas fa-check-circle" style="color: var(--accent);"></i> लाल किल्ला</span>
-                            <span style="background: white; padding: 6px 14px; border-radius: 8px; font-size: 0.85rem;"><i class="fas fa-check-circle" style="color: var(--accent);"></i> निधी वन</span>
-                        </div>
-                        <p style="font-size: 0.9rem; color: #475569;"><i class="fas fa-info-circle" style="color: var(--accent);"></i> चलो बासुरी वाले से मिलना है!</p>
-                    </div>
-                    <div style="background: white; padding: 25px; border-radius: 16px;">
-                        <h4 style="color: var(--primary); margin-bottom: 15px;">📋 पॅकेज तपशील</h4>
-                        <div style="display: flex; flex-direction: column; gap: 10px;">
-                            <div style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #f1f5f9;">
-                                <span>💰 नॉन AC स्लीपर</span>
-                                <span style="font-weight: 700; color: var(--accent);">₹ 11,500/-</span>
-                            </div>
-                            <div style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #f1f5f9;">
-                                <span>💰 3 टिअर AC</span>
-                                <span style="font-weight: 700; color: var(--accent);">₹ 13,500/-</span>
-                            </div>
-                            <div style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #f1f5f9;">
-                                <span>💰 विमान प्रवास</span>
-                                <span style="font-weight: 700; color: var(--accent);">₹ 37,500/-</span>
-                            </div>
-                            <div style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #f1f5f9;">
-                                <span>📅 अॅडव्हान्स बुकिंग</span>
-                                <span style="font-weight: 700; color: var(--primary);">₹ 1,000/-</span>
-                            </div>
-                        </div>
-                        <div style="margin-top: 15px; background: #fef3c7; padding: 12px; border-radius: 10px; text-align: center;">
-                            <strong style="color: #b45309;">🔥 सीट लिमिटेड आहे - लवकर बुक करा!</strong>
-                        </div>
-                        <a href="tel:9284551534" style="display: block; margin-top: 15px; background: var(--accent); color: white; text-align: center; padding: 12px; border-radius: 50px; text-decoration: none; font-weight: 600; transition: all 0.3s;">
-                            <i class="fas fa-phone"></i> आता बुक करा: 9284551534
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- FAQ -->
-        <section id="faq" class="faq-container">
-            <div class="section-header">
-                <h2>❓ सतत विचारले जाणारे प्रश्न</h2>
-                <p class="subtitle">तुमच्या यात्रेसंबंधी सर्व शंकांचे निरसन</p>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>यात्रेत जेवणाची काय व्यवस्था असते?</span>
-                    <span class="faq-toggle">+</span>
-                </div>
-                <div class="faq-answer">
-                    <p>आमच्या प्रत्येक ट्रीपमध्ये स्वतःचे स्वतंत्र मोठे किचन सेटअप आणि अनुभवी महाराष्ट्रीयन आचारी सोबत असतात, जे संपूर्ण प्रवासात अस्सल घरगुती चवीचे शाकाहारी जेवण तयार करतात. ५०० लोकांना एकाच वेळी जेवण देण्याची आमची क्षमता आहे.</p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>बुकिंग करण्यासाठी आम्हाला काय करावे लागेल?</span>
-                    <span class="faq-toggle">+</span>
-                </div>
-                <div class="faq-answer">
-                    <p>तुम्ही आमच्या 9284551534 या नंबरवर थेट कॉल किंवा व्हॉट्सॲप मेसेज करून आपल्या आवडीच्या यात्रेची संपूर्ण माहिती पुस्तिका (Itinerary) मिळवू शकता व जागा आरक्षित करू शकता. अॅडव्हान्स बुकिंग फक्त ₹1,000/- आहे.</p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>बुकिंग रक्कम परत मिळते का?</span>
-                    <span class="faq-toggle">+</span>
-                </div>
-                <div class="faq-answer">
-                    <p>बुकिंग रक्कम कुठल्याही सबबीवर परत मिळत नाही. कृपया बुकिंग करण्यापूर्वी सर्व माहिती व नियम वाचून घ्यावेत. जीवित व वित्तहानीची जबाबदारी कंपनी स्वीकारत नाही.</p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>यात्रेत कोणत्या सुविधा समाविष्ट आहेत?</span>
-                    <span class="faq-toggle">+</span>
-                </div>
-                <div class="faq-answer">
-                    <p>प्रत्येक यात्रेत चहा २ वेळा, नाश्ता १ वेळा, जेवण २ वेळा, रोज १ लिटर पाणी बॉटल, आणि स्टँडर्ड हॉटेल व्यवस्था समाविष्ट आहे. यात्रेच्या प्रकारानुसार वाहतूक आणि इतर सुविधा बदलतात.</p>
                 </div>
             </div>
         </section>
 
         <!-- CONTACT CTA -->
-        <section class="contact-cta">
-            <h3>आता स्वप्न आवरा, बॅग भरा आणि निघा!</h3>
-            <p>तुमच्या संपूर्ण प्रवासाची आणि जेवणाची जबाबदारी आमची. आजच तुमची सीट निश्चित करा.</p>
+        <div class="contact-cta">
+            <h3>तुमच्यापुढील यात्रेचे नियोजन करायचे आहे का?</h3>
+            <p>आजच आमच्याशी संपर्क साधा आणि आनंदी प्रवासाचा आनंद घ्या!</p>
             <div class="contact-links">
-                <a href="tel:9284551534" class="contact-card-btn"><i class="fas fa-phone"></i> कॉल करा: 9284551534</a>
-                <a href="https://wa.me/919284551534" class="contact-card-btn whatsapp"><i class="fab fa-whatsapp"></i> व्हॉट्सॲप चॅट करा</a>
+                <a href="tel:9284551534" class="contact-card-btn"><i class="fas fa-phone-alt"></i> 9284551534</a>
+                <a href="https://wa.me/919284551534" class="contact-card-btn whatsapp"><i class="fab fa-whatsapp"></i> व्हॉट्सॲप चॅट</a>
             </div>
-        </section>
+        </div>
 
-        <!-- ADDRESS -->
+        <!-- ADDRESS SECTION -->
         <div class="address-section">
-            <p>
-                <i class="fas fa-map-marker-alt"></i>
-                <span class="address-text">
-                    Sr.No 206, Datta Nagar, Gosavi Wasti, Sadesatra Nali Road, Hadapsar, Pune - 411028
-                </span>
-            </p>
-            <p style="margin-top: 10px;">
-                <i class="fas fa-phone" style="color: var(--accent);"></i> 
-                <strong>9284551534</strong>
-                &nbsp;&nbsp;|&nbsp;&nbsp;
-                <i class="fas fa-envelope" style="color: var(--accent);"></i>
-                <strong>rutujainternationalholidays@gmail.com</strong>
-            </p>
+            <p class="address-text"><i class="fas fa-map-marker-alt"></i> कार्यालय पत्ता: हडपसर, पुणे, महाराष्ट्र</p>
         </div>
 
     </div>
@@ -1451,125 +1559,40 @@
     <!-- FOOTER -->
     <footer>
         <div class="footer-brand">
-            <img src="https://chatgpt.com/backend-api/estuary/content?id=file_0000000010c8820885043c49bcd821fe&ts=496215&p=fs&cid=1&sig=8b84e3f84c0f0569bc7636174eda5efd6a7eabc80ec5e8ae54843be2547067d5&v=0" alt="Swanand Dev Darshan Logo">
-            🙏 स्वानंद देवदर्शन यात्रा
+            <img src="logo.png" alt="Logo">
+            <span>स्वानंद यात्रा</span>
         </div>
-        <p style="font-size: 0.9rem; color: #cbd5e1;">Rutuja International Holidays</p>
+        <p>Rutuja International Holidays | Swanand Dev Darshan Yatra Company</p>
         <div class="footer-links">
             <a href="#home">मुख्यपृष्ठ</a>
+            <a href="#founder">संस्थापक</a>
             <a href="#speciality">वैशिष्ट्ये</a>
-            <a href="#tours">यात्रा</a>
+            <a href="#tours">पॅकेजेस</a>
+            <a href="#flyers">फ्लयर्स</a>
             <a href="#services">सुविधा</a>
-            <a href="#faq">प्रश्नावली</a>
         </div>
-        <p>© 2026 Rutuja International Holidays | Swanand Dev Darshan Yatra Company, Hadapsar, Pune.</p>
-        <p style="margin-top: 8px; font-size: 0.75rem; color: #64748b;">All Rights Reserved. | विश्वासार्हतेचे नाव म्हणजे स्वानंद</p>
+        <p>&copy; 2026 Rutuja International Holidays. All Rights Reserved.</p>
     </footer>
 
-    <!-- JAVASCRIPT -->
     <script>
-        // --- Mobile Menu Toggle ---
+        // Toggle Mobile Menu
         function toggleMenu() {
             const navLinks = document.getElementById('navLinks');
             navLinks.classList.toggle('open');
         }
 
-        // Close menu on link click
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                document.getElementById('navLinks').classList.remove('open');
-            });
-        });
-
-        // --- FAQ Toggle ---
+        // Toggle FAQ Accordion
         function toggleFaq(element) {
+            element.classList.toggle('active');
             const answer = element.nextElementSibling;
-            const toggleIcon = element.querySelector('.faq-toggle');
-            
-            if (answer.classList.contains('open')) {
-                answer.classList.remove('open');
-                toggleIcon.textContent = '+';
-            } else {
-                // Close other open FAQs
-                document.querySelectorAll('.faq-answer.open').forEach(item => {
-                    item.classList.remove('open');
-                    item.previousElementSibling.querySelector('.faq-toggle').textContent = '+';
-                });
-                answer.classList.add('open');
-                toggleIcon.textContent = '−';
-            }
+            answer.classList.toggle('open');
         }
 
-        // --- Tour Filter ---
-        function filterTours(category, button) {
-            const items = document.querySelectorAll('.tour-item');
-            const buttons = document.querySelectorAll('.tab-btn');
-            
-            buttons.forEach(btn => btn.classList.remove('active'));
-            if (button) button.classList.add('active');
-
-            items.forEach(item => {
-                if (category === 'all') {
-                    item.style.display = 'block';
-                } else if (item.classList.contains(category + '-card')) {
-                    item.style.display = 'block';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
-        }
-
-        // --- Search Tours ---
+        // Simple Tour Search Filter Stub
         function searchTours() {
-            const query = document.getElementById('tourSearch').value.toLowerCase().trim();
-            const items = document.querySelectorAll('.tour-item');
-            
-            // Reset filters
-            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-            
-            let hasResults = false;
-            items.forEach(item => {
-                const name = item.getAttribute('data-name') || '';
-                if (query === '' || name.toLowerCase().includes(query)) {
-                    item.style.display = 'block';
-                    hasResults = true;
-                } else {
-                    item.style.display = 'none';
-                }
-            });
+            const input = document.getElementById('tourSearch').value.toLowerCase();
+            console.log("Searching for: " + input);
         }
-
-        // Search on Enter key
-        document.getElementById('tourSearch').addEventListener('keyup', function(e) {
-            if (e.key === 'Enter') {
-                searchTours();
-            }
-        });
-
-        // --- Smooth Scroll for Navigation ---
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const href = this.getAttribute('href');
-                if (href === '#') return;
-                e.preventDefault();
-                const target = document.querySelector(href);
-                if (target) {
-                    const navHeight = document.querySelector('nav').offsetHeight;
-                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight - 10;
-                    window.scrollTo({ top: targetPosition, behavior: 'smooth' });
-                }
-            });
-        });
-
-        // --- Sticky Nav Shadow on Scroll ---
-        window.addEventListener('scroll', function() {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 50) {
-                nav.style.boxShadow = '0 4px 30px rgba(0,0,0,0.25)';
-            } else {
-                nav.style.boxShadow = '0 4px 30px rgba(0,0,0,0.15)';
-            }
-        });
     </script>
 </body>
 </html>

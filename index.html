@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rutuja International Holidays | Swanand Dev Darshan Yatra Company</title>
-    <!-- Google Fonts for Modern Typography -->a
+    <!-- Google Fonts for Modern Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Yatra+One&family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -155,7 +155,6 @@
 
         .book-btn::after { display: none !important; }
 
-        /* Mobile Menu Toggle */
         .menu-toggle {
             display: none;
             flex-direction: column;
@@ -313,7 +312,7 @@
             font-weight: 600;
         }
 
-        /* --- LIVE SEARCH FILTER BAR --- */
+        /* --- SEARCH FILTER BAR --- */
         .search-container {
             background: white;
             padding: 8px;
@@ -364,31 +363,6 @@
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
-        }
-
-        .stats-float {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin-top: 40px;
-            position: relative;
-            z-index: 2;
-            animation: fadeInUp 1.6s ease;
-        }
-
-        .stats-float .stat {
-            text-align: center;
-        }
-
-        .stats-float .stat .number {
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--accent-gold);
-        }
-
-        .stats-float .stat .label {
-            font-size: 0.8rem;
-            opacity: 0.7;
         }
 
         /* --- SECTION SETTINGS --- */
@@ -556,7 +530,7 @@
             font-size: 0.95rem;
         }
 
-        /* --- TOUR PACKAGES (All 11 from Flyer - No Amounts) --- */
+        /* --- TOUR PACKAGES --- */
         .tours-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
@@ -598,10 +572,16 @@
 
         .tour-img {
             height: 220px;
+            width: 100%;
             background-color: #cbd5e1;
-            background-size: cover;
-            background-position: center;
             position: relative;
+            overflow: hidden;
+        }
+
+        .tour-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .tour-img .tour-tag {
@@ -617,6 +597,7 @@
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.5px;
+            z-index: 2;
         }
 
         .tour-info {
@@ -663,13 +644,16 @@
             font-weight: 600;
             font-size: 0.9rem;
             transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+            width: 100%;
         }
 
         .tour-book-link:hover {
             background: var(--accent);
         }
 
-        /* --- FLYERS & IMAGES GALLERY SECTION --- */
+        /* --- FLYERS GALLERY --- */
         .flyers-section {
             background: white;
             padding: 60px 40px;
@@ -756,121 +740,99 @@
             display: inline-block;
             background: var(--primary);
             color: white;
-            padding: 8px 20px;
+            padding: 8px 16px;
             border-radius: 20px;
             text-decoration: none;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 600;
             transition: all 0.3s;
         }
 
         .flyer-btn:hover {
             background: var(--accent);
+            opacity: 0.9;
         }
 
-        /* --- SERVICES SECTION --- */
-        .services-section {
+        /* --- LANGUAGE MODAL POPUP --- */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(5px);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-box {
             background: white;
-            padding: 60px 20px;
+            padding: 30px;
             border-radius: 20px;
-            margin-bottom: 60px;
-            box-shadow: var(--card-shadow);
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 20px;
-        }
-
-        .service-item {
+            width: 90%;
+            max-width: 400px;
             text-align: center;
-            padding: 25px 15px;
-            border-radius: 12px;
-            transition: all 0.3s;
-            background: var(--bg-light);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+            animation: fadeInDown 0.3s ease;
         }
 
-        .service-item:hover {
+        .modal-box h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .modal-box p {
+            color: #64748b;
+            font-size: 0.9rem;
+            margin-bottom: 25px;
+        }
+
+        .lang-btns {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .lang-btn {
+            flex: 1;
+            padding: 12px;
+            border-radius: 12px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .lang-btn.marathi {
             background: var(--primary);
             color: white;
-            transform: translateY(-5px);
         }
 
-        .service-item i {
-            font-size: 2.2rem;
-            color: var(--accent);
-            margin-bottom: 12px;
-            display: block;
-        }
-
-        .service-item:hover i {
+        .lang-btn.hindi {
+            background: var(--accent);
             color: white;
         }
 
-        .service-item span {
-            font-size: 0.85rem;
-            font-weight: 600;
+        .lang-btn:hover {
+            transform: scale(1.05);
+            opacity: 0.9;
         }
 
-        /* --- FAQ --- */
-        .faq-container {
-            max-width: 800px;
-            margin: 0 auto 60px auto;
-        }
-
-        .faq-item {
-            background: white;
-            margin-bottom: 15px;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
-            transition: all 0.3s;
-        }
-
-        .faq-item:hover {
-            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-        }
-
-        .faq-question {
-            padding: 20px 25px;
-            font-weight: 600;
-            color: var(--primary);
+        .close-modal {
+            margin-top: 15px;
+            background: none;
+            border: none;
+            color: #94a3b8;
             cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            user-select: none;
-            transition: all 0.3s;
+            font-size: 0.85rem;
         }
 
-        .faq-question:hover {
-            background: #f8fafc;
-        }
-
-        .faq-question .faq-toggle {
-            font-size: 1.2rem;
-            color: var(--accent);
-            transition: transform 0.3s;
-        }
-
-        .faq-question.active .faq-toggle {
-            transform: rotate(45deg);
-        }
-
-        .faq-answer {
-            padding: 0 25px;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease, padding 0.4s ease;
-            color: #475569;
-            background: #fafbfc;
-        }
-
-        .faq-answer.open {
-            padding: 20px 25px;
-            max-height: 300px;
-        }
+        .close-modal:hover { color: var(--text-dark); }
 
         /* --- CONTACT CTA --- */
         .contact-cta {
@@ -947,9 +909,7 @@
             box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
         }
 
-        .contact-card-btn i {
-            font-size: 1.3rem;
-        }
+        .contact-card-btn i { font-size: 1.3rem; }
 
         /* --- ADDRESS SECTION --- */
         .address-section {
@@ -1014,24 +974,11 @@
             transition: color 0.3s;
         }
 
-        footer .footer-links a:hover {
-            color: var(--accent-gold);
-        }
-
-        /* --- RESPONSIVE --- */
-        @media (max-width: 992px) {
-            .hero h1 { font-size: 2.6rem; }
-            .founder-grid { grid-template-columns: 1fr; }
-            .founder-img-box { max-width: 320px; margin: 0 auto; }
-        }
+        footer .footer-links a:hover { color: var(--accent-gold); }
 
         @media (max-width: 768px) {
             nav { padding: 12px 20px; }
-            
-            .menu-toggle {
-                display: flex;
-            }
-
+            .menu-toggle { display: flex; }
             .nav-links {
                 display: none;
                 flex-direction: column;
@@ -1043,65 +990,23 @@
                 padding: 20px;
                 gap: 15px;
                 backdrop-filter: blur(12px);
-                border-top: 1px solid rgba(255,255,255,0.05);
             }
-
-            .nav-links.open {
-                display: flex;
-            }
-
-            .nav-links a { font-size: 1rem; }
-
+            .nav-links.open { display: flex; }
             .hero h1 { font-size: 2rem; }
-            .hero h2 { font-size: 1.2rem; }
-            .hero .tagline { font-size: 0.95rem; }
-
-            .hero-logo-badge {
-                flex-direction: column;
-                padding: 20px;
-                gap: 12px;
-                text-align: center;
-            }
-
-            .hero-logo-badge .tagline-text {
-                border-left: none;
-                padding-left: 0;
-                border-top: 1px solid rgba(255,255,255,0.15);
-                padding-top: 12px;
-                font-size: 0.8rem;
-                text-align: center;
-            }
-
-            .search-container {
-                flex-direction: column;
-                border-radius: 20px;
-                padding: 12px;
-            }
-
+            .hero-logo-badge { flex-direction: column; padding: 20px; text-align: center; }
+            .search-container { flex-direction: column; border-radius: 20px; padding: 12px; }
             .search-container button { width: 100%; }
-
-            .stats-float {
-                gap: 20px;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            .section-header h2 { font-size: 1.8rem; }
-            .specs-grid, .tours-grid { grid-template-columns: 1fr; }
-            .founder-section { padding: 30px 20px; }
-
-            .contact-cta { padding: 30px 20px; }
-            .contact-cta h3 { font-size: 1.6rem; }
+            .tours-grid { grid-template-columns: 1fr; }
+            .founder-grid { grid-template-columns: 1fr; }
+            .founder-img-box { max-width: 320px; margin: 0 auto; }
             .contact-links { flex-direction: column; align-items: center; }
             .contact-card-btn { width: 100%; justify-content: center; }
-
-            .services-grid { grid-template-columns: repeat(2, 1fr); }
         }
     </style>
 </head>
 <body>
 
-    <!-- STICKY HEADER NAVIGATION -->
+    <!-- NAVIGATION -->
     <nav>
         <div class="logo">
             <img src="logo.png" alt="Swanand Dev Darshan Logo">
@@ -1116,7 +1021,6 @@
             <li><a href="#speciality">वैशिष्ट्ये</a></li>
             <li><a href="#tours">यात्रा पॅकेजेस</a></li>
             <li><a href="#flyers">फ्लयर्स</a></li>
-            <li><a href="#services">सुविधा</a></li>
             <li><a href="tel:9876543210" class="book-btn"><i class="fas fa-phone"></i> 98765 43210</a></li>
         </ul>
         <div class="menu-toggle" onclick="toggleMenu()">
@@ -1145,27 +1049,12 @@
             <h2>🙏 <strong>प्रस्तुत पुढील यात्रेचे बुकिंग सुरू आहे</strong></h2>
             <div class="tagline">
                 <i class="fas fa-bullhorn"></i> कुठलीही टूर 1000/- रुपये भरून बुक करा <i class="fas fa-bullhorn"></i><br>
-                पुणे, महाराष्ट्र - 411XXX
+                पुणे, महाराष्ट्र
             </div>
 
             <div class="search-container">
-                <input type="text" id="tourSearch" placeholder="🔍 तुमची आवडती ट्रीप किंवा तीर्थक्षेत्र शोधा... (उदा. काश्मीर, चारधाम, केरूळ)" onkeyup="searchTours()">
-                <button type="button" onclick="searchTours()"><i class="fas fa-search"></i> शोधा</button>
-            </div>
-
-            <div class="stats-float">
-                <div class="stat">
-                    <div class="number">11+</div>
-                    <div class="label">विशिष्ट यात्रा</div>
-                </div>
-                <div class="stat">
-                    <div class="number">100%</div>
-                    <div class="label">सुरक्षित प्रवास</div>
-                </div>
-                <div class="stat">
-                    <div class="number">24/7</div>
-                    <div class="label">ग्राहक सेवा</div>
-                </div>
+                <input type="text" id="tourSearch" placeholder="🔍 तुमची आवडती ट्रीप किंवा तीर्थक्षेत्र शोधा... (उदा. काश्मीर, चारधाम, केरळ)" onkeyup="searchTours()">
+                <button type="button"><i class="fas fa-search"></i> शोधा</button>
             </div>
         </div>
     </section>
@@ -1180,17 +1069,13 @@
             </div>
             <div class="founder-grid">
                 <div class="founder-img-box">
-                    <img src="founder.png" alt="Founder - Rutuja International Holidays">
+                    <img src="founder.png" alt="Founder">
                 </div>
                 <div class="founder-details">
                     <h3>श्री. संचालक / संस्थापक</h3>
                     <span class="designation">श्री स्वानंद देव दर्शन यात्रा प्रा. लि.</span>
-                    <p>
-                        "प्रवासाची आवड आणि प्रत्येक यात्रेकरूला आपल्या कुटुंबाप्रमाणे सांभाळण्याची भावना या विचारातून आम्ही या कंपनीची स्थापना केली. घरगुती जेवण, सुरक्षित प्रवास आणि राहण्याची सर्वोत्तम सोय हा आमचा मुख्य हेतू असतो."
-                    </p>
-                    <div class="founder-quote">
-                        "सुरक्षित प्रवास, समाधानाची हमी!"
-                    </div>
+                    <p>"प्रवासाची आवड आणि प्रत्येक यात्रेकरूला आपल्या कुटुंबाप्रमाणे सांभाळण्याची भावना या विचारातून आम्ही या कंपनीची स्थापना केली. घरगुती जेवण, सुरक्षित प्रवास आणि राहण्याची सर्वोत्तम सोय हा आमचा मुख्य हेतू असतो."</p>
+                    <div class="founder-quote">"सुरक्षित प्रवास, समाधानाची हमी!"</div>
                 </div>
             </div>
         </section>
@@ -1225,19 +1110,20 @@
             </div>
         </section>
 
-        <!-- TOUR PACKAGES SECTION (All 11 Trips from the Flyer - No Amounts) -->
+        <!-- TOUR PACKAGES SECTION -->
         <section id="tours">
             <div class="section-header">
-                <h2>सर्व यात्रा पॅकेजेस (फ्लयरनुसार)</h2>
+                <h2>सर्व यात्रा पॅकेजेस</h2>
                 <div class="subtitle">आकर्षक तीर्थक्षेत्र आणि पर्यटन सहली</div>
             </div>
 
             <div class="tours-grid">
                 <!-- 1. अंदमान निकोबार -->
-                <div class="tour-item">
+                <div class="tour-item" data-tour-name="अंदमान निकोबार" data-tour-date="27 सप्टेंबर">
                     <div class="tour-number-badge">1</div>
-                    <div class="tour-img" style="background-image: url('https://images.unsplash.com/photo-1589182373726-e4f658ab50f0?auto=format&fit=crop&w=600&q=80');">
+                    <div class="tour-img">
                         <span class="tour-tag">विमान प्रवास</span>
+                        <img src="https://images.unsplash.com/photo-1589182373726-e4f658ab50f0?auto=format&fit=crop&w=600&q=80" alt="अंदमान निकोबार">
                     </div>
                     <div class="tour-info">
                         <h3>अंदमान निकोबार</h3>
@@ -1245,15 +1131,16 @@
                             <li><span><i class="fas fa-calendar-alt feature-icon"></i> तारीख: 27 सप्टेंबर</span></li>
                             <li><span><i class="fas fa-plane feature-icon"></i> विमान प्रवास</span></li>
                         </ul>
-                        <a href="tel:9876543210" class="tour-book-link"><i class="fas fa-phone"></i> बुकिंगसाठी संपर्क करा</a>
+                        <button class="tour-book-link" onclick="openLangModal('अंदमान निकोबार')"><i class="fab fa-whatsapp"></i> बुकिंगसाठी संपर्क करा</button>
                     </div>
                 </div>
 
                 <!-- 2. चारधाम यात्रा -->
-                <div class="tour-item">
+                <div class="tour-item" data-tour-name="चारधाम यात्रा" data-tour-date="21 ऑक्टोबर">
                     <div class="tour-number-badge">2</div>
-                    <div class="tour-img" style="background-image: url('https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&w=600&q=80');">
+                    <div class="tour-img">
                         <span class="tour-tag">तीन पॅकेज</span>
+                        <img src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&w=600&q=80" alt="चारधाम यात्रा">
                     </div>
                     <div class="tour-info">
                         <h3>चारधाम यात्रा</h3>
@@ -1261,15 +1148,16 @@
                             <li><span><i class="fas fa-calendar-alt feature-icon"></i> तारीख: 21 ऑक्टोबर</span></li>
                             <li><span><i class="fas fa-box feature-icon"></i> तीन पॅकेज पर्याय</span></li>
                         </ul>
-                        <a href="tel:9876543210" class="tour-book-link"><i class="fas fa-phone"></i> बुकिंगसाठी संपर्क करा</a>
+                        <button class="tour-book-link" onclick="openLangModal('चारधाम यात्रा')"><i class="fab fa-whatsapp"></i> बुकिंगसाठी संपर्क करा</button>
                     </div>
                 </div>
 
                 <!-- 3. केरळ ट्रिप -->
-                <div class="tour-item">
+                <div class="tour-item" data-tour-name="केरळ ट्रिप" data-tour-date="12 नोव्हेंबर">
                     <div class="tour-number-badge">3</div>
-                    <div class="tour-img" style="background-image: url('https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=600&q=80');">
+                    <div class="tour-img">
                         <span class="tour-tag">तीन पॅकेज</span>
+                        <img src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=600&q=80" alt="केरळ ट्रिप">
                     </div>
                     <div class="tour-info">
                         <h3>केरळ ट्रिप</h3>
@@ -1277,15 +1165,16 @@
                             <li><span><i class="fas fa-calendar-alt feature-icon"></i> तारीख: 12 नोव्हेंबर</span></li>
                             <li><span><i class="fas fa-box feature-icon"></i> तीन पॅकेज पर्याय</span></li>
                         </ul>
-                        <a href="tel:9876543210" class="tour-book-link"><i class="fas fa-phone"></i> बुकिंगसाठी संपर्क करा</a>
+                        <button class="tour-book-link" onclick="openLangModal('केरळ ट्रिप')"><i class="fab fa-whatsapp"></i> बुकिंगसाठी संपर्क करा</button>
                     </div>
                 </div>
 
                 <!-- 4. वृंदावन स्पेशल -->
-                <div class="tour-item">
+                <div class="tour-item" data-tour-name="वृंदावन स्पेशल" data-tour-date="25 नोव्हेंबर">
                     <div class="tour-number-badge">4</div>
-                    <div class="tour-img" style="background-image: url('https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?auto=format&fit=crop&w=600&q=80');">
+                    <div class="tour-img">
                         <span class="tour-tag">तीन पॅकेज</span>
+                        <img src="https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?auto=format&fit=crop&w=600&q=80" alt="वृंदावन स्पेशल">
                     </div>
                     <div class="tour-info">
                         <h3>वृंदावन स्पेशल</h3>
@@ -1293,15 +1182,16 @@
                             <li><span><i class="fas fa-calendar-alt feature-icon"></i> तारीख: 25 नोव्हेंबर</span></li>
                             <li><span><i class="fas fa-box feature-icon"></i> तीन पॅकेज पर्याय</span></li>
                         </ul>
-                        <a href="tel:9876543210" class="tour-book-link"><i class="fas fa-phone"></i> बुकिंगसाठी संपर्क करा</a>
+                        <button class="tour-book-link" onclick="openLangModal('वृंदावन स्पेशल')"><i class="fab fa-whatsapp"></i> बुकिंगसाठी संपर्क करा</button>
                     </div>
                 </div>
 
                 <!-- 5. अयोध्या काशी प्रयाग -->
-                <div class="tour-item">
+                <div class="tour-item" data-tour-name="अयोध्या काशी प्रयाग" data-tour-date="5 डिसेंबर">
                     <div class="tour-number-badge">5</div>
-                    <div class="tour-img" style="background-image: url('https://images.unsplash.com/photo-1570168007204-dfb528c6958f?auto=format&fit=crop&w=600&q=80');">
+                    <div class="tour-img">
                         <span class="tour-tag">तीन पॅकेज</span>
+                        <img src="https://images.unsplash.com/photo-1570168007204-dfb528c6958f?auto=format&fit=crop&w=600&q=80" alt="अयोध्या काशी प्रयाग">
                     </div>
                     <div class="tour-info">
                         <h3>अयोध्या काशी प्रयाग</h3>
@@ -1309,15 +1199,16 @@
                             <li><span><i class="fas fa-calendar-alt feature-icon"></i> तारीख: 5 डिसेंबर</span></li>
                             <li><span><i class="fas fa-box feature-icon"></i> तीन पॅकेज पर्याय</span></li>
                         </ul>
-                        <a href="tel:9876543210" class="tour-book-link"><i class="fas fa-phone"></i> बुकिंगसाठी संपर्क करा</a>
+                        <button class="tour-book-link" onclick="openLangModal('अयोध्या काशी प्रयाग')"><i class="fab fa-whatsapp"></i> बुकिंगसाठी संपर्क करा</button>
                     </div>
                 </div>
 
                 <!-- 6. गंगासागर जगन्नाथ पुरी -->
-                <div class="tour-item">
+                <div class="tour-item" data-tour-name="गंगासागर जगन्नाथ पुरी" data-tour-date="1 डिसेंबर">
                     <div class="tour-number-badge">6</div>
-                    <div class="tour-img" style="background-image: url('https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=600&q=80');">
+                    <div class="tour-img">
                         <span class="tour-tag">तीन पॅकेज</span>
+                        <img src="https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=600&q=80" alt="गंगासागर जगन्नाथ पुरी">
                     </div>
                     <div class="tour-info">
                         <h3>गंगासागर जगन्नाथ पुरी</h3>
@@ -1325,15 +1216,16 @@
                             <li><span><i class="fas fa-calendar-alt feature-icon"></i> तारीख: 1 डिसेंबर</span></li>
                             <li><span><i class="fas fa-box feature-icon"></i> तीन पॅकेज पर्याय</span></li>
                         </ul>
-                        <a href="tel:9876543210" class="tour-book-link"><i class="fas fa-phone"></i> बुकिंगसाठी संपर्क करा</a>
+                        <button class="tour-book-link" onclick="openLangModal('गंगासागर जगन्नाथ पुरी')"><i class="fab fa-whatsapp"></i> बुकिंगसाठी संपर्क करा</button>
                     </div>
                 </div>
 
                 <!-- 7. गुजरात टूर -->
-                <div class="tour-item">
+                <div class="tour-item" data-tour-name="गुजरात टूर" data-tour-date="5 जानेवारी">
                     <div class="tour-number-badge">7</div>
-                    <div class="tour-img" style="background-image: url('https://media.istockphoto.com/id/177800537/photo/bay-and-harbor-view-of-dwarka-gujarat-india.jpg?s=612x612&w=0&k=20&c=oz6rHIHlNqZZ8N_PpGP8gZoBRcp4oFF4g5qVNjwGRSo=');">
+                    <div class="tour-img">
                         <span class="tour-tag">तीन पॅकेज</span>
+                        <img src="https://images.unsplash.com/photo-1628153495898-a3f2d2b63897?auto=format&fit=crop&w=600&q=80" alt="गुजरात टूर">
                     </div>
                     <div class="tour-info">
                         <h3>गुजरात टूर</h3>
@@ -1341,15 +1233,16 @@
                             <li><span><i class="fas fa-calendar-alt feature-icon"></i> तारीख: 5 जानेवारी</span></li>
                             <li><span><i class="fas fa-box feature-icon"></i> तीन पॅकेज पर्याय</span></li>
                         </ul>
-                        <a href="tel:9876543210" class="tour-book-link"><i class="fas fa-phone"></i> बुकिंगसाठी संपर्क करा</a>
+                        <button class="tour-book-link" onclick="openLangModal('गुजरात टूर')"><i class="fab fa-whatsapp"></i> बुकिंगसाठी संपर्क करा</button>
                     </div>
                 </div>
 
                 <!-- 8. राजस्थान टूर -->
-                <div class="tour-item">
+                <div class="tour-item" data-tour-name="राजस्थान टूर" data-tour-date="20 जानेवारी">
                     <div class="tour-number-badge">8</div>
-                    <div class="tour-img" style="background-image: url('https://images.unsplash.com/photo-1599661046827-dacff0c0f09a?auto=format&fit=crop&w=600&q=80');">
+                    <div class="tour-img">
                         <span class="tour-tag">तीन पॅकेज</span>
+                        <img src="https://images.unsplash.com/photo-1599661046827-dacff0c0f09a?auto=format&fit=crop&w=600&q=80" alt="राजस्थान टूर">
                     </div>
                     <div class="tour-info">
                         <h3>राजस्थान टूर</h3>
@@ -1357,15 +1250,16 @@
                             <li><span><i class="fas fa-calendar-alt feature-icon"></i> तारीख: 20 जानेवारी</span></li>
                             <li><span><i class="fas fa-box feature-icon"></i> तीन पॅकेज पर्याय</span></li>
                         </ul>
-                        <a href="tel:9876543210" class="tour-book-link"><i class="fas fa-phone"></i> बुकिंगसाठी संपर्क करा</a>
+                        <button class="tour-book-link" onclick="openLangModal('राजस्थान टूर')"><i class="fab fa-whatsapp"></i> बुकिंगसाठी संपर्क करा</button>
                     </div>
                 </div>
 
                 <!-- 9. नेपाल ट्रिप -->
-                <div class="tour-item">
+                <div class="tour-item" data-tour-name="नेपाल ट्रिप" data-tour-date="5 फेब्रुवारी">
                     <div class="tour-number-badge">9</div>
-                    <div class="tour-img" style="background-image: url('https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=600&q=80');">
+                    <div class="tour-img">
                         <span class="tour-tag">पॅकेज</span>
+                        <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=600&q=80" alt="नेपाल ट्रिप">
                     </div>
                     <div class="tour-info">
                         <h3>नेपाल ट्रिप</h3>
@@ -1373,15 +1267,16 @@
                             <li><span><i class="fas fa-calendar-alt feature-icon"></i> तारीख: 5 फेब्रुवारी</span></li>
                             <li><span><i class="fas fa-box feature-icon"></i> विशेष पॅकेज पर्याय</span></li>
                         </ul>
-                        <a href="tel:9876543210" class="tour-book-link"><i class="fas fa-phone"></i> बुकिंगसाठी संपर्क करा</a>
+                        <button class="tour-book-link" onclick="openLangModal('नेपाल ट्रिप')"><i class="fab fa-whatsapp"></i> बुकिंगसाठी संपर्क करा</button>
                     </div>
                 </div>
 
                 <!-- 10. काश्मीर टूर -->
-                <div class="tour-item">
+                <div class="tour-item" data-tour-name="काश्मीर टूर" data-tour-date="20 फेब्रुवारी">
                     <div class="tour-number-badge">10</div>
-                    <div class="tour-img" style="background-image: url('https://images.unsplash.com/photo-1598091383021-15ddea10925d?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8a2FzaG1pcnxlbnwwfHwwfHx8MA%3D%3D');">
+                    <div class="tour-img">
                         <span class="tour-tag">तीन पॅकेज</span>
+                        <img src="https://images.unsplash.com/photo-1566837945700-3f757427ae44?auto=format&fit=crop&w=600&q=80" alt="काश्मीर टूर">
                     </div>
                     <div class="tour-info">
                         <h3>काश्मीर टूर</h3>
@@ -1389,15 +1284,16 @@
                             <li><span><i class="fas fa-calendar-alt feature-icon"></i> तारीख: 20 फेब्रुवारी</span></li>
                             <li><span><i class="fas fa-box feature-icon"></i> तीन पॅकेज पर्याय</span></li>
                         </ul>
-                        <a href="tel:9876543210" class="tour-book-link"><i class="fas fa-phone"></i> बुकिंगसाठी संपर्क करा</a>
+                        <button class="tour-book-link" onclick="openLangModal('काश्मीर टूर')"><i class="fab fa-whatsapp"></i> बुकिंगसाठी संपर्क करा</button>
                     </div>
                 </div>
 
                 <!-- 11. आसाम मेघालय अरुणाचल प्रदेश -->
-                <div class="tour-item">
+                <div class="tour-item" data-tour-name="आसाम मेघालय अरुणाचल प्रदेश" data-tour-date="5 मार्च">
                     <div class="tour-number-badge">11</div>
-                    <div class="tour-img" style="background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80');">
+                    <div class="tour-img">
                         <span class="tour-tag">विशेष टूर</span>
+                        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="आसाम मेघालय अरुणाचल प्रदेश">
                     </div>
                     <div class="tour-info">
                         <h3>आसाम मेघालय अरुणाचल प्रदेश</h3>
@@ -1405,13 +1301,13 @@
                             <li><span><i class="fas fa-calendar-alt feature-icon"></i> तारीख: 5 मार्च</span></li>
                             <li><span><i class="fas fa-box feature-icon"></i> तीन पॅकेज पर्याय</span></li>
                         </ul>
-                        <a href="tel:9876543210" class="tour-book-link"><i class="fas fa-phone"></i> बुकिंगसाठी संपर्क करा</a>
+                        <button class="tour-book-link" onclick="openLangModal('आसाम मेघालय अरुणाचल प्रदेश')"><i class="fab fa-whatsapp"></i> बुकिंगसाठी संपर्क करा</button>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- FLYERS & IMAGES GALLERY SECTION -->
+        <!-- FLYERS SECTION -->
         <section id="flyers" class="flyers-section">
             <div class="section-header" style="margin-bottom: 20px;">
                 <h2>यात्रा फ्लयर्स आणि फोटो गॅलरी</h2>
@@ -1419,6 +1315,7 @@
             </div>
 
             <div class="flyers-grid">
+                <!-- फ्लयर 1 -->
                 <div class="flyer-card">
                     <div class="flyer-img-container">
                         <span class="flyer-badge">फ्लयर 01</span>
@@ -1427,10 +1324,14 @@
                     <div class="flyer-content">
                         <h4>विशेष तीर्थक्षेत्र यात्रा</h4>
                         <p>नवीन ट्रिप आणि तारखांची माहिती</p>
-                        <a href="tel:9876543210" class="flyer-btn">बुकिंगसाठी कॉल करा</a>
+                        <div style="display: flex; gap: 8px; justify-content: center;">
+                            <a href="https://wa.me/919876543210?text=Hii%20I%20am%20interested%20in%20Flyer%201%20trip%20details." target="_blank" class="flyer-btn" style="background: #25D366;"><i class="fab fa-whatsapp"></i> व्हॉट्सॲप</a>
+                            <a href="tel:9876543210" class="flyer-btn"><i class="fas fa-phone-alt"></i> कॉल करा</a>
+                        </div>
                     </div>
                 </div>
 
+                <!-- फ्लयर 2 -->
                 <div class="flyer-card">
                     <div class="flyer-img-container">
                         <span class="flyer-badge">फ्लयर 02</span>
@@ -1439,10 +1340,14 @@
                     <div class="flyer-content">
                         <h4>चारधाम / काश्मीर पॅकेज</h4>
                         <p>आकर्षक सवलत आणि सुविधेसह</p>
-                        <a href="tel:9876543210" class="flyer-btn">बुकिंगसाठी कॉल करा</a>
+                        <div style="display: flex; gap: 8px; justify-content: center;">
+                            <a href="https://wa.me/919876543210?text=Hii%20I%20am%20interested%20in%20Flyer%202%20trip%20details." target="_blank" class="flyer-btn" style="background: #25D366;"><i class="fab fa-whatsapp"></i> व्हॉट्सॲप</a>
+                            <a href="tel:9876543210" class="flyer-btn"><i class="fas fa-phone-alt"></i> कॉल करा</a>
+                        </div>
                     </div>
                 </div>
 
+                <!-- फ्लयर 3 -->
                 <div class="flyer-card">
                     <div class="flyer-img-container">
                         <span class="flyer-badge">फ्लयर 03</span>
@@ -1451,34 +1356,10 @@
                     <div class="flyer-content">
                         <h4>अष्टाविनायक व ज्योतिर्लिंग यात्रा</h4>
                         <p>पुण्याहून दर आठवड्याला सुटणाऱ्या गाड्या</p>
-                        <a href="tel:9876543210" class="flyer-btn">बुकिंगसाठी कॉल करा</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- FAQ SECTION -->
-        <section id="faq">
-            <div class="section-header">
-                <h2>नेहमी विचारले जाणारे प्रश्न (FAQ)</h2>
-            </div>
-            <div class="faq-container">
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">
-                        <span>टूर बुकिंगसाठी किती रुपये भरावे लागतात?</span>
-                        <i class="fas fa-plus faq-toggle"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>कुठलीही टूर तुम्ही फक्त 1000/- रुपये भरून बुक करू शकता!</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">
-                        <span>बुकिंगसाठी कसा संपर्क साधावा?</span>
-                        <i class="fas fa-plus faq-toggle"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>तुम्ही आमच्या +91 98765 43210 किंवा +91 87654 3210 या क्रमांकावर संपर्क साधू शकता.</p>
+                        <div style="display: flex; gap: 8px; justify-content: center;">
+                            <a href="https://wa.me/919876543210?text=Hii%20I%20am%20interested%20in%20Flyer%203%20trip%20details." target="_blank" class="flyer-btn" style="background: #25D366;"><i class="fab fa-whatsapp"></i> व्हॉट्सॲप</a>
+                            <a href="tel:9876543210" class="flyer-btn"><i class="fas fa-phone-alt"></i> कॉल करा</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1490,16 +1371,27 @@
             <p>आजच 1000/- रुपये भरून आपली सीट बुक करा!</p>
             <div class="contact-links">
                 <a href="tel:9876543210" class="contact-card-btn"><i class="fas fa-phone-alt"></i> +91 98765 43210</a>
-                <a href="tel:8765432109" class="contact-card-btn"><i class="fas fa-phone-alt"></i> +91 87654 32109</a>
                 <a href="https://wa.me/919876543210" class="contact-card-btn whatsapp"><i class="fab fa-whatsapp"></i> व्हॉट्सॲप चॅट</a>
             </div>
         </div>
 
-        <!-- ADDRESS SECTION -->
         <div class="address-section">
-            <p class="address-text"><i class="fas fa-map-marker-alt"></i> कार्यालय पत्ता: श्री स्वानंद देव दर्शन यात्रा प्रा. लि., पुणे, महाराष्ट्र - 411XXX</p>
+            <p class="address-text"><i class="fas fa-map-marker-alt"></i> कार्यालय पत्ता: श्री स्वानंद देव दर्शन यात्रा प्रा. लि., पुणे, महाराष्ट्र</p>
         </div>
 
+    </div>
+
+    <!-- LANGUAGE SELECTION MODAL POPUP -->
+    <div class="modal-overlay" id="langModal">
+        <div class="modal-box">
+            <h3>भाषा निवडा / भाषा चुनें</h3>
+            <p id="modalTourTitle">कृपया मेसेजची भाषा निवडा:</p>
+            <div class="lang-btns">
+                <button class="lang-btn marathi" onclick="sendWhatsApp('mr')">मराठी 🇮🇳</button>
+                <button class="lang-btn hindi" onclick="sendWhatsApp('hi')">हिंदी 🇮🇳</button>
+            </div>
+            <button class="close-modal" onclick="closeLangModal()">रद्द करा</button>
+        </div>
     </div>
 
     <!-- FOOTER -->
@@ -1509,31 +1401,55 @@
             <span>श्री स्वानंद देव दर्शन यात्रा</span>
         </div>
         <p>Rutuja International Holidays | Swanand Dev Darshan Yatra Company</p>
-        <div class="footer-links">
-            <a href="#home">मुख्यपृष्ठ</a>
-            <a href="#founder">संस्थापक</a>
-            <a href="#speciality">वैशिष्ट्ये</a>
-            <a href="#tours">पॅकेजेस</a>
-            <a href="#flyers">फ्लयर्स</a>
-        </div>
         <p>&copy; 2026 Rutuja International Holidays. All Rights Reserved.</p>
     </footer>
 
     <script>
+        let selectedTourName = "";
+
         function toggleMenu() {
-            const navLinks = document.getElementById('navLinks');
-            navLinks.classList.toggle('open');
+            document.getElementById('navLinks').classList.toggle('open');
         }
 
-        function toggleFaq(element) {
-            element.classList.toggle('active');
-            const answer = element.nextElementSibling;
-            answer.classList.toggle('open');
+        function openLangModal(tourName) {
+            selectedTourName = tourName;
+            document.getElementById('modalTourTitle').innerText = `'${tourName}' साठी मेसेजची भाषा निवडा:`;
+            document.getElementById('langModal').style.display = 'flex';
+        }
+
+        function closeLangModal() {
+            document.getElementById('langModal').style.display = 'none';
+        }
+
+        function sendWhatsApp(lang) {
+            let message = "";
+            const phoneNumber = "919876543210"; // तुमचा व्हॉट्सॲप नंबर येथे बदला
+
+            if (lang === 'mr') {
+                message = `Hii, I am interested in this '${selectedTourName}' trip. Can I know more details about it?`;
+            } else {
+                message = `Hii, I am interested in this '${selectedTourName}' trip. Can I know more details about it? (मुझे इस यात्रा के बारे में अधिक जानकारी चाहिए)`;
+            }
+
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+            
+            closeLangModal();
+            window.open(whatsappURL, '_blank');
         }
 
         function searchTours() {
             const input = document.getElementById('tourSearch').value.toLowerCase();
-            console.log("Searching for: " + input);
+            const tours = document.querySelectorAll('.tour-item');
+
+            tours.forEach(tour => {
+                const tourName = tour.getAttribute('data-tour-name').toLowerCase();
+                if (tourName.includes(input)) {
+                    tour.style.display = "block";
+                } else {
+                    tour.style.display = "none";
+                }
+            });
         }
     </script>
 </body>
